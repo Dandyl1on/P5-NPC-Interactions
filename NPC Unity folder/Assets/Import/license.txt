@@ -1,0 +1,11 @@
+Model Information:
+* title:	PHR Generic Coffee Machine - SULTAN
+* source:	https://sketchfab.com/3d-models/phr-generic-coffee-machine-sultan-8738d2bdb86349d8a769790798bc0b62
+* author:	Phrizee (https://sketchfab.com/phrizee)
+
+Model License:
+* license type:	CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions must have the same license.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "PHR Generic Coffee Machine - SULTAN" (https://sketchfab.com/3d-models/phr-generic-coffee-machine-sultan-8738d2bdb86349d8a769790798bc0b62) by Phrizee (https://sketchfab.com/phrizee) licensed under CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)

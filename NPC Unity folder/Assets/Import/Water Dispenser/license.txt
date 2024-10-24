@@ -1,0 +1,11 @@
+Model Information:
+* title:	Water Dispenser Dirty
+* source:	https://sketchfab.com/3d-models/water-dispenser-dirty-89ed290e19ed41b389e15a83a6a4f516
+* author:	Stefan_dot_obj (https://sketchfab.com/stefanprops)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Water Dispenser Dirty" (https://sketchfab.com/3d-models/water-dispenser-dirty-89ed290e19ed41b389e15a83a6a4f516) by Stefan_dot_obj (https://sketchfab.com/stefanprops) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
