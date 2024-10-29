@@ -1,0 +1,11 @@
+Model Information:
+* title:	Old Bookshelf
+* source:	https://sketchfab.com/3d-models/old-bookshelf-3f572626cc8242e4b808ecb5d832eaff
+* author:	Sanzid (https://sketchfab.com/sanzid)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Old Bookshelf" (https://sketchfab.com/3d-models/old-bookshelf-3f572626cc8242e4b808ecb5d832eaff) by Sanzid (https://sketchfab.com/sanzid) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

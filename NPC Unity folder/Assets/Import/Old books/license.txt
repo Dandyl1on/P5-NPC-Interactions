@@ -1,0 +1,11 @@
+Model Information:
+* title:	Old Books
+* source:	https://sketchfab.com/3d-models/old-books-f92ca232c92648a2aa28fa1ca3f9b907
+* author:	Zian (https://sketchfab.com/zian_0912)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Old Books" (https://sketchfab.com/3d-models/old-books-f92ca232c92648a2aa28fa1ca3f9b907) by Zian (https://sketchfab.com/zian_0912) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
