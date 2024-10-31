@@ -1,0 +1,11 @@
+Model Information:
+* title:	UK Fire Alarm Button
+* source:	https://sketchfab.com/3d-models/uk-fire-alarm-button-4d8b92481b2f400f855b81623ee4b6c7
+* author:	Atlas_Callisto (https://sketchfab.com/Atlas_Callisto)
+
+Model License:
+* license type:	CC-BY-NC-ND-4.0 (http://creativecommons.org/licenses/by-nc-nd/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions can not be distributed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "UK Fire Alarm Button" (https://sketchfab.com/3d-models/uk-fire-alarm-button-4d8b92481b2f400f855b81623ee4b6c7) by Atlas_Callisto (https://sketchfab.com/Atlas_Callisto) licensed under CC-BY-NC-ND-4.0 (http://creativecommons.org/licenses/by-nc-nd/4.0/)
