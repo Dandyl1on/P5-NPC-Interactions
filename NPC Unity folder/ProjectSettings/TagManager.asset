@@ -14,14 +14,10 @@ TagManager:
   - 
   - Water
   - UI
-<<<<<<< Updated upstream
-  - Ignore Outside Light
-=======
-  - Player
->>>>>>> Stashed changes
-  - 
-  - 
-  - 
+  - Left Hand Physics
+  - Right Hand Physics
+  - Collideable
+  - Not Collideable
   - 
   - 
   - 
