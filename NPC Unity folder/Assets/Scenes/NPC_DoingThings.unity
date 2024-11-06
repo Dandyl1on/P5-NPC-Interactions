@@ -710,14 +710,26 @@ MonoBehaviour:
     AnimationOverBodyName: 
     PlaceToBe: {fileID: 0}
     Importen: 1
-  MaxSpeed: 2
   Speed: 0
-  Acceleration: 10
   Ani: {fileID: 1795074192}
   SatTurnDegress: 0
   TurnAnimationFix: 0
   PlayerMissing: 0
   PlayerPoosition: {x: 0, y: 0, z: 0}
+  Player: {fileID: 0}
+  PersonalSpace: 0
+  PushPlayerAway:
+    Name: 
+    AnimationName: 
+    AnimationOverBodyName: 
+    PlaceToBe: {fileID: 0}
+    Importen: 0
+  WalkBack:
+    Name: 
+    AnimationName: 
+    AnimationOverBodyName: 
+    PlaceToBe: {fileID: 0}
+    Importen: 0
   TalkBlend: 0
   SmoothOverbodyTransition: 0
   SmoothOverbodyTransitionDuration: 0
@@ -731,7 +743,7 @@ MonoBehaviour:
   detectionAngle: 30
   targetLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1024
 --- !u!95 &1795074192 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5925864781151661338, guid: efc5947a30e790c4d853273fe0bed900, type: 3}

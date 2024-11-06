@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -32,16 +31,19 @@ public class NPC_DoDoer : MonoBehaviour
 
     public List<NPCDo> NPCMenuScript;
 
-    public float MaxSpeed;
     public float Speed;
-    public float Acceleration;
     public Animator Ani;
 
     public bool SatTurnDegress;
     public bool TurnAnimationFix;
-    
+
     public bool PlayerMissing;
     public Vector3 PlayerPoosition;
+    public GameObject Player;
+
+    public float PersonalSpace;
+    public NPCDo PushPlayerAway;
+    public NPCDo WalkBack;
 
     public float TalkBlend;
 
@@ -106,37 +108,24 @@ public class NPC_DoDoer : MonoBehaviour
             if (Vector3.Distance(transform.position, location) < .1)
             {
                 GetNextDo();
-            } 
+            }
             else
             {
-                if (Vector3.Distance(transform.position, location) < .25)
-                {
-                    if (Speed > .3)
-                    {
-                        Speed -= Acceleration * Time.deltaTime;
-                    }
-                    else
-                    {
-                        Speed = .2f;
-                    }
-                }
-                else
-                {
-                    if (Speed < MaxSpeed)
-                    {
-                        Speed += Acceleration * Time.deltaTime;
-                    }
-                    else
-                    {
-                        Speed = MaxSpeed;
-                    }
-                }
-
-                float NormalizedSpeed = Speed / MaxSpeed;
-
-                Ani.SetFloat("Walk Speed", NormalizedSpeed);
-
                 transform.position = Vector3.MoveTowards(transform.position, location, Speed * Time.deltaTime);
+            }
+        }
+
+        if (DoNow.Name == "Walk Back")
+        {
+            Vector3 location = new Vector3(DoNow.PlaceToBe.transform.position.x, 0, DoNow.PlaceToBe.transform.position.z);
+
+            if (Vector3.Distance(transform.position, Player.transform.position) > PersonalSpace + 1)
+            {
+                GetNextDo();
+            }
+            else
+            {
+                transform.position = Vector3.MoveTowards(transform.position, location, -Speed * Time.deltaTime);
             }
         }
 
@@ -182,12 +171,29 @@ public class NPC_DoDoer : MonoBehaviour
 
         if (DoNow.Name == "WaitingOnPlayer")
         {
+            Debug.Log("WaitingOnPlayer");
             DetectPlayerInCone();
         }
 
         if (DoNow.Name == "Explain")
         {
             DetectPlayerInCone();
+        }
+
+        if (DoNow.Name != "Press Buttons")
+        {
+            if (Vector3.Distance(transform.position, Player.transform.position) < PersonalSpace)
+            {
+                NewDoIsNeeded(WalkBack);
+            }
+        }
+
+        if (DoNow.Name == "Push")
+        {
+            if (Vector3.Distance(transform.position, Player.transform.position) > PersonalSpace)
+            {
+                GetNextDo();
+            }
         }
     }
 
@@ -219,7 +225,7 @@ public class NPC_DoDoer : MonoBehaviour
     {
         if (DoNow.Importen == true)
         {
-            NPCDoingList.Insert(0, DoNow);  
+            NPCDoingList.Insert(0, DoNow);
         }
 
         DoNow = _Do;
@@ -237,6 +243,7 @@ public class NPC_DoDoer : MonoBehaviour
             Ani.SetBool("Turn", false);
             Ani.SetBool("Turn2", false);
             Ani.SetBool("Talk", false);
+            Ani.SetBool("Push", false);
 
             Ani.SetBool(animationName, true);
 
