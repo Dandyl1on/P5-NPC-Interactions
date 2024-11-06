@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 
 public class StopColliding : MonoBehaviour
 {
-    UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable interactable;
+    XRGrabInteractable interactable;
 
     public float Timer;
 
     // Start is called before the first frame update
     void Start()
     {
-        interactable = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
+        interactable = GetComponent<XRGrabInteractable>();
     }
 
     // Update is called once per frame
