@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Undefined
+  - popup
+  - popupVirus
+  - hand
+  - paper
+  - mug
   layers:
   - Default
   - TransparentFX
