@@ -3,13 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Anchor
-  - paper
-  - popup
-  - hand
-  - mug
-  - popupVirus
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -17,10 +11,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Left Hand Physics
+  - Right Hand Physics
+  - Collideable
+  - Not Collideable
   - 
   - 
   - 
