@@ -10,6 +10,8 @@ public class Printerscript : MonoBehaviour
 
     public Transform PaperPosition;
     
+    private GameObject currentPaper;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -27,9 +29,13 @@ public class Printerscript : MonoBehaviour
         Debug.Log("Triggered");
         if (other.gameObject.CompareTag("Player"))
         {
-            Paper.transform.position = PaperPosition.position;
+            
+            currentPaper = Instantiate(Paper, PaperPosition.position, PaperPosition.rotation);
             //Move paper to set location
             print("Paper printed :3");
+
+            
+
         }
     }
 }
