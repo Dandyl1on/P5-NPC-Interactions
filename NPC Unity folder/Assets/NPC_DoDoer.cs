@@ -37,8 +37,8 @@ public class NPC_DoDoer : MonoBehaviour
     public bool SatTurnDegress;
     public bool TurnAnimationFix;
 
-    public bool PlayerMissing;
-    public Vector3 PlayerPoosition;
+    public bool CheckPointMessing;
+    public Vector3 CheckPointLastPossing;
     public GameObject Player;
 
     public float PersonalSpace;
@@ -51,11 +51,12 @@ public class NPC_DoDoer : MonoBehaviour
     public float SmoothOverbodyTransitionDuration;
 
     [Header("Detection")]
-    public NPCDo TurnTowardsPlayer;
+    public NPCDo Turn;
+
+    public bool HasTurned;
 
     public float detectionRadius = 30f; // Range of the detection
     public float detectionAngle = 25f;  // Half of the cone angle
-    public LayerMask targetLayer;
 
 
     // Start is called before the first frame update
@@ -67,6 +68,11 @@ public class NPC_DoDoer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (DoNow.Name != "Turn")
+        {
+            DetectPlayerInCone();
+        }
+
         if (SmoothOverbodyTransition == true)
         {
             if (SmoothOverbodyTransitionDuration < 1)
@@ -88,9 +94,9 @@ public class NPC_DoDoer : MonoBehaviour
 
         if (DoNow.PlaceToBe != null)
         {
-            if (PlayerPoosition != DoNow.PlaceToBe.transform.position)
+            if (CheckPointLastPossing != DoNow.PlaceToBe.transform.position)
             {
-                PlayerPoosition = DoNow.PlaceToBe.transform.position;
+                CheckPointLastPossing = DoNow.PlaceToBe.transform.position;
                 SetAnimation("Turn2");
                 SatTurnDegress = false;
             }
@@ -129,7 +135,7 @@ public class NPC_DoDoer : MonoBehaviour
             }
         }
 
-        if (DoNow.Name == "Turn" || DoNow.Name == "TurnTowardsPlayer")
+        if (DoNow.Name == "Turn")
         {
             if (SatTurnDegress == false)
             {
@@ -157,7 +163,7 @@ public class NPC_DoDoer : MonoBehaviour
                 {
                     GetNextDo();
                     SatTurnDegress = false;
-                    PlayerMissing = false;
+                    CheckPointMessing = false;
 
                     TurnAnimationFix = true;
                 }
@@ -166,18 +172,6 @@ public class NPC_DoDoer : MonoBehaviour
                     SetAnimation("Turn2");
                 }
             }
-        }
-
-
-        if (DoNow.Name == "WaitingOnPlayer")
-        {
-            Debug.Log("WaitingOnPlayer");
-            DetectPlayerInCone();
-        }
-
-        if (DoNow.Name == "Explain")
-        {
-            DetectPlayerInCone();
         }
 
         if (DoNow.Name != "Press Buttons")
@@ -199,23 +193,28 @@ public class NPC_DoDoer : MonoBehaviour
 
     void DetectPlayerInCone()
     {
-        if (PlayerMissing == false)
+        if (CheckPointMessing == false)
         {
             // Find all colliders in the detection radius
-            Collider[] targetsInRange = Physics.OverlapSphere(transform.position, detectionRadius, targetLayer);
+            Collider[] targetsInRange = Physics.OverlapSphere(transform.position, detectionRadius);
 
             foreach (Collider target in targetsInRange)
             {
-                // Get direction to the target
-                Vector3 directionToTarget = (target.transform.position - transform.position).normalized;
-
-                // Check if the target is within the cone angle
-                float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
-                if (angleToTarget > detectionAngle)
+                if (target.gameObject == DoNow.PlaceToBe)
                 {
-                    PlayerMissing = true;
+                    // Get direction to the target
+                    Vector3 directionToTarget = (target.transform.position - transform.position).normalized;
 
-                    NewDoIsNeeded(TurnTowardsPlayer);
+                    // Check if the target is within the cone angle and outside a certain range
+                    float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
+                    float distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
+
+                    if (angleToTarget > detectionAngle && distanceToTarget > 2.2f) // Adjust distance as needed
+                    {
+                        CheckPointMessing = true;
+                        Turn.PlaceToBe = DoNow.PlaceToBe;
+                        NewDoIsNeeded(Turn);
+                    }
                 }
             }
         }
@@ -286,6 +285,19 @@ public class NPC_DoDoer : MonoBehaviour
         DoNow = NPCDoingList[0];
         RemoveDo(0);
 
+        if (HasTurned == false)
+        {
+            Turn.PlaceToBe = DoNow.PlaceToBe;
+            NewDoIsNeeded(Turn);
+
+            HasTurned = true;
+        }
+
+        if (DoNow.Name != "Turn")
+        {
+            HasTurned = false;
+        }
+
         GetNextDoInfoSat();
     }
 
@@ -294,10 +306,9 @@ public class NPC_DoDoer : MonoBehaviour
         SetAnimation(DoNow.AnimationName);
         SetOverBodyAnimation(DoNow.AnimationOverBodyName);
 
-
         if (DoNow.PlaceToBe != null)
         {
-            PlayerPoosition = DoNow.PlaceToBe.transform.position;
+            CheckPointLastPossing = DoNow.PlaceToBe.transform.position;
         }
     }
 
