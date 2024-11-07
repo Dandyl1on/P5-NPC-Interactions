@@ -3,6 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+<<<<<<< Updated upstream
   tags:
   - Undefined
   - popup
@@ -10,6 +11,9 @@ TagManager:
   - hand
   - paper
   - mug
+=======
+  tags: []
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
@@ -17,10 +21,17 @@ TagManager:
   - 
   - Water
   - UI
+<<<<<<< Updated upstream
   - Left Hand Physics
   - Right Hand Physics
   - Collideable
   - Not Collideable
+=======
+  - 
+  - 
+  - 
+  - 
+>>>>>>> Stashed changes
   - 
   - 
   - 
