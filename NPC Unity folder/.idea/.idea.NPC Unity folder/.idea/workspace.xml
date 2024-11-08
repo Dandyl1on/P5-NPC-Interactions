@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d91582f8-28d9-46be-8e2e-413ef4ce59ed" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NPC Unity folder/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NPC Unity folder/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Printer time baby.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Printer time baby.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/WorkingPrinter/Printerscript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WorkingPrinter/Printerscript.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +75,8 @@
       <workItem from="1730455098382" duration="3079000" />
       <workItem from="1730971950979" duration="237000" />
       <workItem from="1730972589544" duration="1799000" />
-      <workItem from="1730974980922" duration="5184000" />
+      <workItem from="1730974980922" duration="5619000" />
+      <workItem from="1731057640107" duration="5878000" />
     </task>
     <servers />
   </component>

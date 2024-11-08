@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -9,10 +10,14 @@ public class Printerscript : MonoBehaviour
 {
 
     public GameObject Paper;
+
     
-    public Transform[] SpawnPositions;
     public Transform Startpos1;
     public Transform Endpos1;
+    public Transform Startpos2;
+    public Transform Endpos2;
+    public Transform Startpos3;
+    public Transform Endpos3;
     
     
     private GameObject currentPaper;
@@ -20,6 +25,9 @@ public class Printerscript : MonoBehaviour
     public bool isMoving = false;
     public float moveSpeed = 1.0f;
     public float moveProgress = 0.0f;
+    
+    public Transform Startpos;
+    public Transform Endpos;
     
     // Start is called before the first frame update
     void Start()
@@ -34,11 +42,17 @@ public class Printerscript : MonoBehaviour
         {
             moveProgress += Time.deltaTime * moveSpeed;
 
-            currentPaper.transform.position = Vector3.Lerp(Startpos1.position, Endpos1.position, moveProgress );
+            currentPaper.transform.position = Vector3.Lerp(Startpos.position, Endpos.position, moveProgress );
+            currentPaper.transform.rotation = Quaternion.Lerp(Startpos.rotation, Endpos.rotation, moveProgress);
             
             if (moveProgress >= 1.0f)
             {
                 isMoving = false;
+                BoxCollider paperCollider = currentPaper.GetComponent<BoxCollider>();
+                Rigidbody paperRb = currentPaper.GetComponent<Rigidbody>();
+
+                paperCollider.enabled = true;
+                paperRb.isKinematic = false;
                 moveProgress = 0.0f;
             }
         }
@@ -49,17 +63,43 @@ public class Printerscript : MonoBehaviour
         Debug.Log("Triggered");
         if (other.gameObject.CompareTag("Player") && !isMoving)
         {
-            currentPaper = Instantiate(Paper, Startpos1.position, Quaternion.identity);
-            
-            // int randomIndex = Random.Range(0, SpawnPositions.Length);
-            // Vector3 spawnPos = SpawnPositions[randomIndex].position;
-            // currentPaper = Instantiate(Paper, spawnPos, Quaternion.identity);
-            //Move paper to set location
+            Paperlocation();
             print("Paper printed :3");
 
+            
+            
+        }
+    }
+
+    private void Paperlocation()
+    {
+        int randomLocation = Random.Range(0, 4);
+        Debug.Log(randomLocation);
+        if (randomLocation == 1)
+        {
+            currentPaper = Instantiate(Paper, Startpos1.position, Quaternion.identity);
+            Startpos = Startpos1;
+            Endpos = Endpos1;
             isMoving = true;
             moveProgress = 0.0f;
-            
+        }
+
+        if (randomLocation == 2)
+        {
+            currentPaper = Instantiate(Paper, Startpos2.position, Quaternion.identity);
+            Startpos = Startpos2;
+            Endpos = Endpos2;
+            isMoving = true;
+            moveProgress = 0.0f;
+        }
+
+        if (randomLocation == 3)
+        {
+            currentPaper = Instantiate(Paper, Startpos3.position, Quaternion.identity);
+            Startpos = Startpos3;
+            Endpos = Endpos3;
+            isMoving = true;
+            moveProgress = 0.0f;
         }
     }
 }
