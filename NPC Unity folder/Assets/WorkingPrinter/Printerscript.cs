@@ -75,7 +75,7 @@ public class Printerscript : MonoBehaviour
     {
         int randomLocation = Random.Range(0, 4);
         Debug.Log(randomLocation);
-        if (randomLocation == 1)
+        if (randomLocation == 0 || randomLocation == 1)
         {
             currentPaper = Instantiate(Paper, Startpos1.position, Quaternion.identity);
             Startpos = Startpos1;
