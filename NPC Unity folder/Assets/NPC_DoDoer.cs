@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Animations;
+using Unity.LiveCapture.ARKitFaceCapture;
 
 [System.Serializable]
 public class NPCDo
@@ -58,19 +60,49 @@ public class NPC_DoDoer : MonoBehaviour
     public float detectionRadius = 30f; // Range of the detection
     public float detectionAngle = 25f;  // Half of the cone angle
 
+    [Header("Rotation Settings")]
+    public GameObject Head;
+    public Transform target; // The target to look at
+    public float minAngle = -45f; // Minimum angle limit
+    public float maxAngle = 45f;  // Maximum angle limit
+    public float rotationSpeed = 5f; // Rotation speed
+
+    public SkinnedMeshRenderer skinnedMeshRenderer;
+
 
     // Start is called before the first frame update
     void Start()
     {
         GetNextDo();
+
+        Mesh mesh = skinnedMeshRenderer.sharedMesh;
+
+        string blendShapeNames = "Blendshapes: ";
+        int blendShapeCount = mesh.blendShapeCount;
+        for (int i = 0; i < blendShapeCount; i++)
+        {
+            string blendShapeName = mesh.GetBlendShapeName(i);
+            blendShapeNames += blendShapeName;
+
+            // Add a separator if this is not the last blendshape
+            if (i < blendShapeCount - 1)
+                blendShapeNames += ", ";
+        }
+
+        Debug.Log(blendShapeNames);
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+
         if (DoNow.Name != "Turn")
         {
-            DetectPlayerInCone();
+            if (DoNow.PlaceToBe != null)
+            {
+                DetectPlayerInCone();
+            }
         }
 
         if (SmoothOverbodyTransition == true)
@@ -287,10 +319,13 @@ public class NPC_DoDoer : MonoBehaviour
 
         if (HasTurned == false)
         {
-            Turn.PlaceToBe = DoNow.PlaceToBe;
-            NewDoIsNeeded(Turn);
+            if (DoNow.PlaceToBe != null)
+            {
+                Turn.PlaceToBe = DoNow.PlaceToBe;
+                NewDoIsNeeded(Turn);
 
-            HasTurned = true;
+                HasTurned = true;
+            }
         }
 
         if (DoNow.Name != "Turn")
@@ -312,6 +347,39 @@ public class NPC_DoDoer : MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        //LookAtPlayer();    dont worky
+    }
+
+
+    public void LookAtPlayer()
+    {
+        // Get the direction to the target
+        Vector3 directionToTarget = target.position - Head.transform.position;
+
+        // Ignore vertical differences
+        directionToTarget.y = 0;
+
+        // If the direction is zero, return
+        if (directionToTarget == Vector3.zero) return;
+
+        // Calculate the target rotation based on the direction
+        Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
+
+        // Convert target rotation to an angle relative to the object's current rotation
+        float angleToTarget = Mathf.DeltaAngle(Head.transform.eulerAngles.y, targetRotation.eulerAngles.y);
+
+        // Clamp the angle to the min and max limits
+        float clampedAngle = Mathf.Clamp(angleToTarget, minAngle, maxAngle);
+
+        // Calculate the final rotation
+        Quaternion clampedRotation = Quaternion.Euler(0, transform.eulerAngles.y + clampedAngle, 0);
+
+        // Smoothly rotate towards the clamped rotation
+        Head.transform.rotation = Quaternion.Slerp(Head.transform.rotation, clampedRotation, Time.deltaTime * rotationSpeed);
+    }
+
 
 
     // Optional: visualize the detection area in the editor
@@ -326,5 +394,4 @@ public class NPC_DoDoer : MonoBehaviour
         Gizmos.DrawLine(transform.position, transform.position + rightLimit);
         Gizmos.DrawLine(transform.position, transform.position + leftLimit);
     }
-
 }
