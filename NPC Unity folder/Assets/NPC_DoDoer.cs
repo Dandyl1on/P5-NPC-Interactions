@@ -275,6 +275,7 @@ public class NPC_DoDoer : MonoBehaviour
             Ani.SetBool("Turn2", false);
             Ani.SetBool("Talk", false);
             Ani.SetBool("Push", false);
+            Ani.SetBool("Press Buttons", false);
 
             Ani.SetBool(animationName, true);
 
@@ -292,6 +293,8 @@ public class NPC_DoDoer : MonoBehaviour
         }
 
         Ani.SetBool("OverBody Talk", false);
+        Ani.SetBool("Cross Arms", false);
+        Ani.SetBool("Point", false);
 
         if (animationName == "null")
         {

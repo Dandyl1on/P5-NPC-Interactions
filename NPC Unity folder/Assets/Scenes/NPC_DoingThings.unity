@@ -122,6 +122,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &6789529 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6554049446473682121, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+  m_PrefabInstance: {fileID: 1970783067}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &164734210
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,12 +153,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 164734210}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0016, y: -0.1388, z: 0.009}
-  m_LocalScale: {x: 0.45, y: 0.5, z: 0.5}
+  m_LocalRotation: {x: -0.000000059604645, y: 1.1940276e-11, z: 3.0796882e-13, w: 1}
+  m_LocalPosition: {x: 0.0015935973, y: -1.6841353, z: -0.012001902}
+  m_LocalScale: {x: 0.45, y: 0.5, z: 0.5000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2142344269}
+  m_Father: {fileID: 6789529}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &164734212
 MeshRenderer:
@@ -1401,13 +1406,13 @@ PrefabInstance:
       addedObject: {fileID: 2018640533}
     - targetCorrespondingSourceObject: {fileID: 9009641022450665528, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       insertIndex: 12
-      addedObject: {fileID: 164734211}
-    - targetCorrespondingSourceObject: {fileID: 9009641022450665528, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
-      insertIndex: 13
       addedObject: {fileID: 538250151}
     - targetCorrespondingSourceObject: {fileID: 9009641022450665528, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
-      insertIndex: 14
+      insertIndex: 13
       addedObject: {fileID: 1099141805}
+    - targetCorrespondingSourceObject: {fileID: 6554049446473682121, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 164734211}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1167380217172817428, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       insertIndex: -1
@@ -1622,7 +1627,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3af2942d3af52be429c16fe364b72018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smileIntensity: 30
+  currentExpression: 0
+  transitionSpeed: 5
+  expressionIntensity: 30
   skinnedMeshRenderer: {fileID: 560424375}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
