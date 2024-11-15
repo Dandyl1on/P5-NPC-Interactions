@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7704170a9cd0f23498f99d47caf1d10d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paperTrash: {fileID: 4265374182188450278, guid: 25e2a9e525bcb064b9b50b3a4a4d7325, type: 3}
+  paperTrash: {fileID: 7794030764926492877, guid: bb8e9e4ce433f3b4190db1a24eafaee6, type: 3}
 --- !u!198 &8198863489999612702
 ParticleSystem:
   m_ObjectHideFlags: 0

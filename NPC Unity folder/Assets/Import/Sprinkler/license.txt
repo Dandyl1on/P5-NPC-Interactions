@@ -1,0 +1,11 @@
+Model Information:
+* title:	Fire sprinkler
+* source:	https://sketchfab.com/3d-models/fire-sprinkler-e535a9a2789a4de1a8bd007980e32dc0
+* author:	pamoan10 (https://sketchfab.com/pamoan10)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Fire sprinkler" (https://sketchfab.com/3d-models/fire-sprinkler-e535a9a2789a4de1a8bd007980e32dc0) by pamoan10 (https://sketchfab.com/pamoan10) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)

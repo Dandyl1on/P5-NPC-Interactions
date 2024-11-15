@@ -8,17 +8,19 @@ using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class PCMouseScript : MonoBehaviour
 {
-    public GameObject mouseObject;
+    public GameObject mouseObject, popup, blueScreen;
     public float sensitivity;
 
     public float maxY, maxX;
 
     [SerializeField]GameObject vrControllerHandRight;
     ControllerAnimator yoinkScript;
+    MouseScript yoinkScript2;
 
     private void Start()
     {
         yoinkScript = vrControllerHandRight.GetComponent<ControllerAnimator>();
+        yoinkScript2 = mouseObject.GetComponent<MouseScript>();
     }
 
     void Update()
@@ -30,30 +32,26 @@ public class PCMouseScript : MonoBehaviour
 
         transform.localPosition = new Vector3(mouseObject.transform.localPosition.x * sensitivity, mouseObject.transform.localPosition.z * sensitivity, transform.localPosition.z);
 
-        //Debug.Log(yoinkScript.m_TriggerInput);
+        Debug.Log(yoinkScript.triggerYoinkValue);
     }
 
-    //InputDevice
-
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("popup"))
         {
-
-            Debug.Log("Entering!");
+            if(yoinkScript2.mouseHeld == true && yoinkScript.triggerYoinkValue > 0.2f)
+            {
+                other.gameObject.SetActive(false);
+            }
         }
 
         if (other.gameObject.CompareTag("popupVirus"))
         {
-
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("popup"))
-        {
-            Debug.Log("Exiting!");
+            if (yoinkScript2.mouseHeld == true && yoinkScript.triggerYoinkValue > 0.2f)
+            {
+                popup.gameObject.SetActive(false);
+                blueScreen.SetActive(true);
+            }
         }
     }
 }

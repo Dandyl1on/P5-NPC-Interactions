@@ -7,6 +7,23 @@ public class MouseScript : MonoBehaviour
     public Transform mouseCenter;
     public float maxXDistance = 0.5f;
     public float maxZDistance = 0.5f;
+    public bool mouseHeld = false;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("hand"))
+        {
+            mouseHeld = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("hand"))
+        {
+            mouseHeld = false;
+        }
+    }
 
     private void OnTriggerStay(Collider other)
     {

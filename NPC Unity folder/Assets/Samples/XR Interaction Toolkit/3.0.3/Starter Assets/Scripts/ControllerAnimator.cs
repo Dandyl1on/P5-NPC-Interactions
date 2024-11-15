@@ -27,6 +27,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 
         [SerializeField]
         XRInputValueReader<float> m_TriggerInput = new XRInputValueReader<float>("Trigger");
+        public float triggerYoinkValue = 0;
 
         [Header("Grip")]
         [SerializeField]
@@ -71,6 +72,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             {
                 var triggerVal = m_TriggerInput.ReadValue();
                 m_TriggerTransform.localRotation = Quaternion.Euler(Mathf.Lerp(m_TriggerXAxisRotationRange.x, m_TriggerXAxisRotationRange.y, triggerVal), 0f, 0f);
+
+                triggerYoinkValue = triggerVal;
             }
             
             if (m_GripInput != null)
