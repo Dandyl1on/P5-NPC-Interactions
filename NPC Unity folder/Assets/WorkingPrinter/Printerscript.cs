@@ -10,7 +10,7 @@ public class Printerscript : MonoBehaviour
 {
 
     public GameObject Paper;
-
+    public AudioSource Printersound;
     
     public Transform Startpos1;
     public Transform Endpos1;
@@ -40,6 +40,8 @@ public class Printerscript : MonoBehaviour
     {
         if (isMoving)
         {
+            Printersound = GetComponent<AudioSource>();
+            Printersound.Play();
             moveProgress += Time.deltaTime * moveSpeed;
 
             currentPaper.transform.position = Vector3.Lerp(Startpos.position, Endpos.position, moveProgress );
