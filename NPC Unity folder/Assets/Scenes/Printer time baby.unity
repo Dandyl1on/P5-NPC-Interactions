@@ -1261,6 +1261,7 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
+  Dropped: 0
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
   m_UseDynamicAttach: 0
@@ -2185,6 +2186,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1673005856908817423, guid: b1f18902ecaef6547beda5d9115c66bc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1007178686}
+    - targetCorrespondingSourceObject: {fileID: 1673005856908817423, guid: b1f18902ecaef6547beda5d9115c66bc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1007178690}
     - targetCorrespondingSourceObject: {fileID: 567032498461304245, guid: b1f18902ecaef6547beda5d9115c66bc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1676364127}
@@ -3041,6 +3045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Paper: {fileID: 5872422598040075449, guid: 9a44a3b51d8d1fb4ebf45e6e584a7cae, type: 3}
+  Printersound: {fileID: 1007178690}
   Startpos1: {fileID: 1013729041}
   Endpos1: {fileID: 573335292}
   Startpos2: {fileID: 1514599959}
@@ -3052,6 +3057,7 @@ MonoBehaviour:
   moveProgress: 0
   Startpos: {fileID: 0}
   Endpos: {fileID: 0}
+  soundclip: 8
 --- !u!65 &1007178682
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3100,6 +3106,102 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!82 &1007178690
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007178679}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 5f0a74791cbe0434c837d6513d4afc3e, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1013729040
 GameObject:
   m_ObjectHideFlags: 0
@@ -10206,6 +10308,7 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
+  Dropped: 0
   m_AttachTransform: {fileID: 25863054}
   m_SecondaryAttachTransform: {fileID: 0}
   m_UseDynamicAttach: 0
