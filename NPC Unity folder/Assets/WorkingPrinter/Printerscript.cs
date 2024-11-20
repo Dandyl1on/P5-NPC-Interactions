@@ -23,11 +23,13 @@ public class Printerscript : MonoBehaviour
     private GameObject currentPaper;
     
     public bool isMoving = false;
-    public float moveSpeed = 1.0f;
+    public float moveSpeed;
     public float moveProgress = 0.0f;
     
     public Transform Startpos;
     public Transform Endpos;
+
+    public float soundclip = 9.0f;
     
     // Start is called before the first frame update
     void Start()
@@ -40,8 +42,7 @@ public class Printerscript : MonoBehaviour
     {
         if (isMoving)
         {
-            Printersound = GetComponent<AudioSource>();
-            Printersound.Play();
+            moveSpeed = 1.0f / soundclip;
             moveProgress += Time.deltaTime * moveSpeed;
 
             currentPaper.transform.position = Vector3.Lerp(Startpos.position, Endpos.position, moveProgress );
@@ -75,10 +76,12 @@ public class Printerscript : MonoBehaviour
 
     private void Paperlocation()
     {
-        int randomLocation = Random.Range(0, 4);
+        int randomLocation = Random.Range(0, 3);
         Debug.Log(randomLocation);
-        if (randomLocation == 0 || randomLocation == 1)
+        if (randomLocation == 0)
         {
+            Printersound = GetComponent<AudioSource>();
+            Printersound.Play();
             currentPaper = Instantiate(Paper, Startpos1.position, Quaternion.identity);
             Startpos = Startpos1;
             Endpos = Endpos1;
@@ -86,8 +89,10 @@ public class Printerscript : MonoBehaviour
             moveProgress = 0.0f;
         }
 
-        if (randomLocation == 2)
+        if (randomLocation == 1)
         {
+            Printersound = GetComponent<AudioSource>();
+            Printersound.Play();
             currentPaper = Instantiate(Paper, Startpos2.position, Quaternion.identity);
             Startpos = Startpos2;
             Endpos = Endpos2;
@@ -95,8 +100,10 @@ public class Printerscript : MonoBehaviour
             moveProgress = 0.0f;
         }
 
-        if (randomLocation == 3)
+        if (randomLocation == 2)
         {
+            Printersound = GetComponent<AudioSource>();
+            Printersound.Play();
             currentPaper = Instantiate(Paper, Startpos3.position, Quaternion.identity);
             Startpos = Startpos3;
             Endpos = Endpos3;
