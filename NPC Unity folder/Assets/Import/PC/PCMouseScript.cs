@@ -8,7 +8,7 @@ using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class PCMouseScript : MonoBehaviour
 {
-    public GameObject mouseObject, popup, blueScreen;
+    public GameObject mouseObject, popup, blueScreen, mailWindow, mailSent, mailDeleted, deleteButton, sendButton;
     public float sensitivity;
 
     public float maxY, maxX;
@@ -16,6 +16,8 @@ public class PCMouseScript : MonoBehaviour
     [SerializeField]GameObject vrControllerHandRight;
     ControllerAnimator yoinkScript;
     MouseScript yoinkScript2;
+
+    bool popupHappened = false;
 
     private void Start()
     {
@@ -49,9 +51,57 @@ public class PCMouseScript : MonoBehaviour
         {
             if (yoinkScript2.mouseHeld == true && yoinkScript.triggerYoinkValue > 0.2f)
             {
-                popup.gameObject.SetActive(false);
+                popup.SetActive(false);
                 blueScreen.SetActive(true);
             }
         }
+
+        if (other.gameObject.CompareTag("mailIcon"))
+        {
+            if (yoinkScript2.mouseHeld == true && yoinkScript.triggerYoinkValue > 0.2f)
+            {
+                mailWindow.SetActive(true);
+                if(popupHappened == false)
+                {
+                    StartCoroutine(SpawnAfterTime());
+                }             
+            }
+        }
+
+        if (other.gameObject.CompareTag("mailWindowClose"))
+        {
+            if (yoinkScript2.mouseHeld == true && yoinkScript.triggerYoinkValue > 0.2f)
+            {
+                mailWindow.SetActive(false);
+            }
+        }
+
+        if (other.gameObject.CompareTag("mailWindowSend"))
+        {
+            if (yoinkScript2.mouseHeld == true && yoinkScript.triggerYoinkValue > 0.2f)
+            {
+                mailSent.SetActive(true);
+
+                deleteButton.SetActive(false);
+                sendButton.SetActive(false);
+            }
+        }
+
+        if (other.gameObject.CompareTag("mailWindowDelete"))
+        {
+            if (yoinkScript2.mouseHeld == true && yoinkScript.triggerYoinkValue > 0.2f)
+            {
+                mailDeleted.SetActive(true);
+
+                deleteButton.SetActive(false);
+                sendButton.SetActive(false);
+            }
+        }
+    }
+
+    IEnumerator SpawnAfterTime()
+    {
+        yield return new WaitForSeconds(1.5f);
+        popup.SetActive(true);
     }
 }

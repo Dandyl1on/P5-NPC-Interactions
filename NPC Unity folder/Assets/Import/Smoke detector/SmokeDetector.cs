@@ -4,18 +4,31 @@ using UnityEngine;
 
 public class SmokeDetector : MonoBehaviour
 {
-    [SerializeField] GameObject light;
+    [SerializeField] GameObject lightObject, sprinklerParticles1, sprinklerParticles2;
     Material lightMat;
 
     bool lightOn = false;
+    public bool fireOn = false;
 
     void Start()
     {
-        lightMat = light.GetComponent<Material>();
+        lightMat = lightObject.GetComponent<MeshRenderer>().material;
     }
 
     void Update()
     {
+        if(fireOn == true)
+        {
+            sprinklerParticles1.SetActive(true);
+            sprinklerParticles2.SetActive(true);
+        }
+        else
+        {
+            sprinklerParticles1.SetActive(false);
+            sprinklerParticles2.SetActive(false);
+        }
+
+        //Blinking light
         if(lightOn == true)
         {
             StartCoroutine(turnOff());
@@ -28,14 +41,16 @@ public class SmokeDetector : MonoBehaviour
     IEnumerator turnOn()
     {
         lightMat.EnableKeyword("_EMISSION");
+        //Debug.Log("Turn ON");
         yield return new WaitForSeconds(1);
-        lightOn = false;
+        lightOn = true;
     }
 
     IEnumerator turnOff()
     {
         lightMat.DisableKeyword("_EMISSION");
-        yield return new WaitForSeconds(1);
-        lightOn = true;
+        //Debug.Log("Turn OFF");
+        yield return new WaitForSeconds(10);
+        lightOn = false;
     }
 }
