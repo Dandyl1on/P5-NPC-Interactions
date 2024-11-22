@@ -35092,6 +35092,7 @@ GameObject:
   - component: {fileID: 5388399307834105215}
   - component: {fileID: 8607329272790017760}
   - component: {fileID: 4850163990440162013}
+  - component: {fileID: 8607329272790017761}
   m_Layer: 0
   m_Name: Trash can
   m_TagString: Untagged
@@ -47815,6 +47816,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2175004308678388502}
   m_Mesh: {fileID: 4300000, guid: 31544c092b2abcc4d9391d3cb4a48c5b, type: 2}
+--- !u!65 &8607329272790017761
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175004308678388502}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 245.0346, y: 244.51468, z: 34.258694}
+  m_Center: {x: -0.28659037, y: 0.884867, z: 79.72529}
 --- !u!4 &8613338830483050760
 Transform:
   m_ObjectHideFlags: 0
