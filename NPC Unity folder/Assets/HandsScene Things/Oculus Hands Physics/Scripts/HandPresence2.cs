@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 using UnityEngine.XR;
 
 public class HandPresence2 : MonoBehaviour
@@ -8,10 +9,12 @@ public class HandPresence2 : MonoBehaviour
     public InputDeviceCharacteristics controllerCharacteristics;    
     private InputDevice targetDevice;
     public Animator handAnimator;
+    public Rig Pointing;
 
     void Start()
     {
         TryInitialize();
+        Pointing.weight = 0;
     }
 
     void TryInitialize()
@@ -39,10 +42,12 @@ public class HandPresence2 : MonoBehaviour
         if (targetDevice.TryGetFeatureValue(CommonUsages.grip, out float gripValue))
         {
             handAnimator.SetFloat("Grip", gripValue);
+            Pointing.weight = gripValue;
         }
         else
         {
             handAnimator.SetFloat("Grip", 0);
+            Pointing.weight = 0;
         }
     }
 
