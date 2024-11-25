@@ -13,25 +13,33 @@ public class NPCDo
     public string AnimationOverBodyName;
     public GameObject PlaceToBe;
     public bool Importen;
+    public Expression ExpressionToDo;
 
-    NPCDo(string _Name, string _AnimationName, string _AnimationOverBodyName, GameObject _PlaceToBe, bool importen)
+    NPCDo(string _Name, string _AnimationName, string _AnimationOverBodyName, GameObject _PlaceToBe, bool importen, Expression expressionToDo)
     {
         Name = _Name;
         AnimationName = _AnimationName;
         AnimationOverBodyName = _AnimationOverBodyName;
         PlaceToBe = _PlaceToBe;
         Importen = importen;
+        ExpressionToDo = expressionToDo;
     }
 }
 
 
 public class NPC_DoDoer : MonoBehaviour
 {
+    public float Temperment;
+
     public NPCDo DoNow;
 
     public List<NPCDo> NPCDoingList;
 
+    public List<NPCDo> OLDNPCMenuScript;
+
     public List<NPCDo> NPCMenuScript;
+
+    public bool KSpurgt;
 
     public float Speed;
     public Animator Ani;
@@ -46,6 +54,9 @@ public class NPC_DoDoer : MonoBehaviour
     public float PersonalSpace;
     public NPCDo PushPlayerAway;
     public NPCDo WalkBack;
+    public NPCDo CrossArms;
+
+    public bool BackedUp;
 
     public float TalkBlend;
 
@@ -69,11 +80,12 @@ public class NPC_DoDoer : MonoBehaviour
 
     public SkinnedMeshRenderer skinnedMeshRenderer;
 
+    public TheBlendShaper TheBlendShaper;
+ //   private poosay poosay.pink = true; 
 
     // Start is called before the first frame update
     void Start()
     {
-        GetNextDo();
 
         Mesh mesh = skinnedMeshRenderer.sharedMesh;
 
@@ -90,6 +102,12 @@ public class NPC_DoDoer : MonoBehaviour
         }
 
         Debug.Log(blendShapeNames);
+
+
+
+        TheBlendShaper = FindAnyObjectByType<TheBlendShaper>();
+
+        GetNextDo();
     }
 
     // Update is called once per frame
@@ -155,16 +173,47 @@ public class NPC_DoDoer : MonoBehaviour
 
         if (DoNow.Name == "Walk Back")
         {
-            Vector3 location = new Vector3(DoNow.PlaceToBe.transform.position.x, 0, DoNow.PlaceToBe.transform.position.z);
-
-            if (Vector3.Distance(transform.position, Player.transform.position) > PersonalSpace + 1)
+            if (BackedUp == false)
             {
-                GetNextDo();
+                Vector3 location = new Vector3(DoNow.PlaceToBe.transform.position.x, 0, DoNow.PlaceToBe.transform.position.z);
+
+                if (Vector3.Distance(transform.position, Player.transform.position) > PersonalSpace + .5f)
+                {
+                    GetNextDo();
+                }
+                else
+                {
+                    Vector3 _vec = new Vector3(transform.position.x, 0, transform.position.z);
+
+                    transform.position = Vector3.MoveTowards(_vec, location, -Speed / 2 * Time.deltaTime);
+                }
             }
             else
             {
-                transform.position = Vector3.MoveTowards(transform.position, location, -Speed * Time.deltaTime);
+                Debug.Log("Cross Arms 2");
+                NewDoIsNeeded(CrossArms);
             }
+        }
+
+
+        if (DoNow.Name == "Cross Arms")
+        {
+            if (BackedUp == true)
+            {
+                if (Vector3.Distance(transform.position, Player.transform.position) > PersonalSpace + .5f)
+                {
+                    Debug.Log("Do Cross Arms");
+
+                    SmoothOverbodyTransition = false;
+                    GetNextDo();
+                }
+                else
+                {
+                    Debug.Log("Set Push");
+
+                    NewDoIsNeeded(PushPlayerAway);
+                }
+            } 
         }
 
         if (DoNow.Name == "Turn")
@@ -179,12 +228,22 @@ public class NPC_DoDoer : MonoBehaviour
 
                 Debug.Log("AngleDifference: " + angleDifference);
 
-                float NormalizedAngleDifference = angleDifference / 180f;
+                float normalizedAngleDifference = angleDifference / 180f;
+                Debug.Log("NormalizedAngleDifference: " + normalizedAngleDifference);
 
-                Debug.Log("NormalizedAngleDifference: " + NormalizedAngleDifference);
+                Ani.SetFloat("Turn Degress", normalizedAngleDifference);
 
-                Ani.SetFloat("Turn Degress", NormalizedAngleDifference);
 
+                float minSpeed = 1f;  // Minimum animation speed
+                float maxSpeed = 5f;  // Maximum animation speed
+                float smallestAngle = .1f; // Minimum angle to avoid division by zero or overly high speeds
+                float adjustedAngle = Mathf.Max(Mathf.Abs(angleDifference), smallestAngle); // Ensure a minimum angle threshold
+                float speedFactor = Mathf.Clamp(180f / adjustedAngle, minSpeed, maxSpeed); // Speed is inversely proportional to angle
+
+
+                Ani.SetFloat("Turn Speed", speedFactor);
+
+                Debug.Log("AnimationSpeed: " + speedFactor);
 
                 SatTurnDegress = true;
             }
@@ -206,11 +265,22 @@ public class NPC_DoDoer : MonoBehaviour
             }
         }
 
-        if (DoNow.Name != "Press Buttons")
+        if (DoNow.Name != "Press Buttons" && DoNow.Name != "Cross Arms" && DoNow.Name != "Push")
         {
-            if (Vector3.Distance(transform.position, Player.transform.position) < PersonalSpace)
+            if (BackedUp == false)
             {
-                NewDoIsNeeded(WalkBack);
+                if (Vector3.Distance(transform.position, Player.transform.position) < PersonalSpace)
+                {
+                    NewDoIsNeeded(WalkBack);
+                }
+            }
+            else
+            {
+                if (Vector3.Distance(transform.position, Player.transform.position) < PersonalSpace)
+                {
+                    Debug.Log("Cross Arms 1: " + DoNow.Name);
+                    NewDoIsNeeded(CrossArms);
+                }
             }
         }
 
@@ -218,6 +288,22 @@ public class NPC_DoDoer : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, Player.transform.position) > PersonalSpace)
             {
+                GetNextDo();
+            }
+            else
+            {
+                NewDoIsNeeded(PushPlayerAway);
+            }
+        }
+
+        if (DoNow.Name == "Explain" || DoNow.Name == "Press Buttons")
+        {
+            if (KSpurgt == true)
+            {
+                KSpurgt = false;
+
+                SetOverBodyAnimation("null");
+
                 GetNextDo();
             }
         }
@@ -246,6 +332,14 @@ public class NPC_DoDoer : MonoBehaviour
                         CheckPointMessing = true;
                         Turn.PlaceToBe = DoNow.PlaceToBe;
                         NewDoIsNeeded(Turn);
+                    }
+                    else
+                    {
+                        // Optional: Lock rotation to only certain axes (e.g., y-axis)
+                        directionToTarget.y = 0;
+
+                        // Rotate the object to face the target
+                        transform.rotation = Quaternion.LookRotation(directionToTarget);
                     }
                 }
             }
@@ -276,11 +370,26 @@ public class NPC_DoDoer : MonoBehaviour
             Ani.SetBool("Talk", false);
             Ani.SetBool("Push", false);
             Ani.SetBool("Press Buttons", false);
+            Ani.SetBool("Cross Arms", false);
+
+            Debug.Log("animationName: " + animationName);
 
             Ani.SetBool(animationName, true);
 
 
             TurnAnimationFix = false;
+        }
+
+        if (DoNow.ExpressionToDo != Expression.Nothing) 
+        {
+            if (DoNow.ExpressionToDo != Expression.Neutral)
+            {
+                TheBlendShaper.currentExpression = DoNow.ExpressionToDo;
+            }
+            else
+            {
+                SetFaceToDefault();
+            }
         }
     }
 
@@ -293,7 +402,7 @@ public class NPC_DoDoer : MonoBehaviour
         }
 
         Ani.SetBool("OverBody Talk", false);
-        Ani.SetBool("Cross Arms", false);
+        Ani.SetBool("Cross Arms Overbody", false);
         Ani.SetBool("Point", false);
 
         if (animationName == "null")
@@ -324,10 +433,31 @@ public class NPC_DoDoer : MonoBehaviour
         {
             if (DoNow.PlaceToBe != null)
             {
-                Turn.PlaceToBe = DoNow.PlaceToBe;
-                NewDoIsNeeded(Turn);
+                // Find all colliders in the detection radius
+                Collider[] targetsInRange = Physics.OverlapSphere(transform.position, detectionRadius);
 
-                HasTurned = true;
+                foreach (Collider target in targetsInRange)
+                {
+                    if (target.gameObject == DoNow.PlaceToBe)
+                    {
+                        // Get direction to the target
+                        Vector3 directionToTarget = (target.transform.position - transform.position).normalized;
+
+                        // Check if the target is within the cone angle and outside a certain range
+                        float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
+
+                        if (angleToTarget > detectionAngle/4) // Adjust distance as needed
+                        {
+                            Debug.Log("LOOK!!!");
+                            Turn.PlaceToBe = DoNow.PlaceToBe;
+                            NewDoIsNeeded(Turn);
+
+                            HasTurned = true;
+
+                            return;
+                        }
+                    }
+                }
             }
         }
 
@@ -347,6 +477,16 @@ public class NPC_DoDoer : MonoBehaviour
         if (DoNow.PlaceToBe != null)
         {
             CheckPointLastPossing = DoNow.PlaceToBe.transform.position;
+        }
+
+        if (DoNow.Name == "Cross Arms" || DoNow.Name == "Walk Back")
+        {
+            Temperment += 5;
+        }
+
+        if (DoNow.Name == "Push")
+        {
+            Temperment += 10;
         }
     }
 
@@ -384,6 +524,42 @@ public class NPC_DoDoer : MonoBehaviour
     }
 
 
+    //Face
+    public void SetFaceToDefault()
+    {
+        if (Temperment < 100)
+        {
+            if (Temperment < 80)
+            {
+                if (Temperment < 40)
+                {
+                    TheBlendShaper.currentExpression = Expression.Neutral;
+                }
+                else
+                {
+                    TheBlendShaper.currentExpression = Expression.Mad;
+                }
+            }
+            else
+            {
+                TheBlendShaper.currentExpression = Expression.Angry;
+            }
+        }
+        else
+        {
+            TheBlendShaper.currentExpression = Expression.Angry;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        BackedUp = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        BackedUp = false;
+    }
 
     // Optional: visualize the detection area in the editor
     void OnDrawGizmosSelected()

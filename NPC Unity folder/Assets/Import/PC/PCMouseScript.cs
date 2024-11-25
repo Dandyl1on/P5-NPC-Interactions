@@ -34,7 +34,7 @@ public class PCMouseScript : MonoBehaviour
 
         transform.localPosition = new Vector3(mouseObject.transform.localPosition.x * sensitivity, mouseObject.transform.localPosition.z * sensitivity, transform.localPosition.z);
 
-        Debug.Log(yoinkScript.triggerYoinkValue);
+        //Debug.Log(yoinkScript.triggerYoinkValue);
     }
 
     private void OnTriggerStay(Collider other)

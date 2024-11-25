@@ -1252,12 +1252,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 560424375}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: WalkBack.ExpressionToDo
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCMenuScript.Array.size
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: PushPlayerAway.ExpressionToDo
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[0].Name
-      value: Cross Arms
+      value: WaitingOnPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCMenuScript.Array.data[5].Name
@@ -1274,7 +1286,7 @@ PrefabInstance:
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[0].PlaceToBe
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 509620413}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCMenuScript.Array.data[5].Importen
       value: 1
@@ -1293,15 +1305,43 @@ PrefabInstance:
       objectReference: {fileID: 509620413}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[0].AnimationName
-      value: 
+      value: Idle
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCMenuScript.Array.data[5].AnimationName
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCMenuScript.Array.data[0].ExpressionToDo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCMenuScript.Array.data[1].ExpressionToDo
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCMenuScript.Array.data[2].ExpressionToDo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCMenuScript.Array.data[3].ExpressionToDo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCMenuScript.Array.data[4].ExpressionToDo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCMenuScript.Array.data[5].ExpressionToDo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCMenuScript.Array.data[6].ExpressionToDo
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[0].AnimationOverBodyName
-      value: Cross Arms
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCMenuScript.Array.data[5].AnimationOverBodyName
@@ -1627,9 +1667,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3af2942d3af52be429c16fe364b72018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentExpression: 0
+  currentExpression: 8
   transitionSpeed: 5
-  expressionIntensity: 30
+  expressionIntensity: 40
   skinnedMeshRenderer: {fileID: 560424375}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
