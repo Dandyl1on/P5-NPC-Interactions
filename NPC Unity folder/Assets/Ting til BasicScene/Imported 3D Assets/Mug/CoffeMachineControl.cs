@@ -9,12 +9,14 @@ public class CoffeMachineControl : MonoBehaviour
     [SerializeField] GameObject coffeStream, waterStream, mugCoffee, mug;
     private bool coffeeMade = false;
     XRGrabInteractable mugScript;
+    AudioSource coffeeMachineSound;
 
     void Start()
     {
         ChangeStreams(false);
         mugCoffee.SetActive(false);
         mugScript = mug.GetComponent<XRGrabInteractable>();
+        coffeeMachineSound = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -36,6 +38,7 @@ public class CoffeMachineControl : MonoBehaviour
     {
         ChangeStreams(true);
         mugScript.enabled = false;
+        coffeeMachineSound.Play();
         yield return new WaitForSeconds(2);
         ChangeStreams(false);
         mugScript.enabled = true;
