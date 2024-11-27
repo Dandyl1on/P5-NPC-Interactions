@@ -1823,6 +1823,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: XR Origin (XR Rig)
       objectReference: {fileID: 0}
+    - target: {fileID: 1717954561962503725, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -16612,7 +16616,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1738137037
 Transform:
   m_ObjectHideFlags: 0
@@ -26789,6 +26793,75 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1092408308860062549, guid: 5e46ed97acf0eed44ba04a81b73659c7, type: 3}
   m_PrefabInstance: {fileID: 271814969}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2002956067
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 582141902238764823, guid: 64b6e56013821d54d967fada50924731, type: 3}
+      propertyPath: m_CameraYOffset
+      value: 1.36144
+      objectReference: {fileID: 0}
+    - target: {fileID: 582141902238764823, guid: 64b6e56013821d54d967fada50924731, type: 3}
+      propertyPath: m_RequestedTrackingOriginMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 869192660062497926, guid: 64b6e56013821d54d967fada50924731, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 869192660062497926, guid: 64b6e56013821d54d967fada50924731, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 869192660062497926, guid: 64b6e56013821d54d967fada50924731, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 869192660062497926, guid: 64b6e56013821d54d967fada50924731, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 869192660062497926, guid: 64b6e56013821d54d967fada50924731, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 869192660062497926, guid: 64b6e56013821d54d967fada50924731, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 869192660062497926, guid: 64b6e56013821d54d967fada50924731, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 869192660062497926, guid: 64b6e56013821d54d967fada50924731, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 869192660062497926, guid: 64b6e56013821d54d967fada50924731, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 869192660062497926, guid: 64b6e56013821d54d967fada50924731, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3632033959410932938, guid: 64b6e56013821d54d967fada50924731, type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5726591199865231380, guid: 64b6e56013821d54d967fada50924731, type: 3}
+      propertyPath: m_Name
+      value: VR Origin
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 64b6e56013821d54d967fada50924731, type: 3}
 --- !u!4 &2006887976 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -1812909498023395591, guid: 5e46ed97acf0eed44ba04a81b73659c7, type: 3}
@@ -49230,6 +49303,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 441087506}
+  - {fileID: 2002956067}
   - {fileID: 756192408}
   - {fileID: 2092139010}
   - {fileID: 271814969}
