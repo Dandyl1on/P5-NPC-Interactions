@@ -6,6 +6,7 @@ public class FireAlarm : MonoBehaviour
 {
     [SerializeField] GameObject sprinklerParticles1, sprinklerParticles2;
     [SerializeField] AudioSource fireAlarmSound;
+    AudioSource sprinkler1Sound, sprinkler2Sound;
     public bool fireOn;
     bool alarmIsPlaying;
 
@@ -13,6 +14,8 @@ public class FireAlarm : MonoBehaviour
     {
         fireOn = false;
         alarmIsPlaying = false;
+        sprinkler1Sound = sprinklerParticles1.GetComponent<AudioSource>();
+        sprinkler2Sound = sprinklerParticles2.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -26,6 +29,8 @@ public class FireAlarm : MonoBehaviour
             if(alarmIsPlaying == false)
             {
                 fireAlarmSound.Play();
+                sprinkler1Sound.Play();
+                sprinkler2Sound.Play();
                 alarmIsPlaying = true;
             }
         }
