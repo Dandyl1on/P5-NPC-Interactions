@@ -2008,7 +2008,7 @@ Transform:
   m_GameObject: {fileID: 329353329}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.478, y: 0.05, z: -2.648}
+  m_LocalPosition: {x: 1.478, y: 0.05, z: -3.147}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5633,6 +5633,165 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 844245400}
   m_Mesh: {fileID: 4300000, guid: d3a3e5ec01e2f9e499b86477ac9f6838, type: 2}
+--- !u!1 &848580870
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 848580871}
+  - component: {fileID: 848580873}
+  - component: {fileID: 848580872}
+  m_Layer: 0
+  m_Name: LipSync
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &848580871
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848580870}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1891779634}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &848580872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848580870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87560e04aa74c7a41acb9c87051c3b02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 04d8d7db6114a384aaabeb1d02dd2013, type: 2}
+  onLipSyncUpdate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1891779640}
+        m_TargetAssemblyTypeName: uLipSync.uLipSyncBlendShape, uLipSync.Runtime
+        m_MethodName: OnLipSyncUpdate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  outputSoundGain: 1
+  audioSourceProxy: {fileID: 0}
+--- !u!82 &848580873
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848580870}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a652053d4ca3ec447bda10764045d625, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &863268202
 GameObject:
   m_ObjectHideFlags: 0
@@ -15087,6 +15246,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: DenDerVirker
       objectReference: {fileID: 0}
+    - target: {fileID: 1887274632578435851, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887274632578435851, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[7]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887274632578435851, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[8]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887274632578435851, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[29]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887274632578435851, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[34]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2483197712129223249, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: m_Data.m_SourceObjects.m_Item0.transform
       value: 
@@ -15124,6 +15303,10 @@ PrefabInstance:
       value: Cross Arms
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: AudioSource
+      value: 
+      objectReference: {fileID: 848580873}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: Idle.Importen
       value: 1
       objectReference: {fileID: 0}
@@ -15135,6 +15318,30 @@ PrefabInstance:
       propertyPath: CrossArms.Name
       value: Cross Arms
       objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: WalkBack.Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: fd00a8f6ed7851146b95aa07d0f71266, type: 3}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: CrossArms.Sound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: AdvarelseOne.Name
+      value: Advarelse
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: AdvarelseTwo.Name
+      value: Advarelse
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: AdvarelseOne.Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e25b849acfd00a4f8c7ffb9a50da052, type: 3}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: AdvarelseTwo.Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 2d15e6c412c570c44afc755e847861c1, type: 3}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: CrossArms.Importen
       value: 0
@@ -15148,6 +15355,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 764775571}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: AdvarelseThree.Name
+      value: Advarelse
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: Idle.ExpressionToDo
       value: 4
       objectReference: {fileID: 0}
@@ -15160,17 +15371,37 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1503202035}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: AdvarelseThree.Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8039f13ddaf775846ac50332e627be84, type: 3}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: PushPlayerAway.Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: c31962e6543d8d34da86327713a7adfd, type: 3}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: AdvarelseOne.PlaceToBe
+      value: 
+      objectReference: {fileID: 764775571}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: AdvarelseTwo.PlaceToBe
+      value: 
+      objectReference: {fileID: 764775571}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: CrossArms.AnimationName
       value: Cross Arms
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.size
-      value: 16
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: WalkBack.ExpressionToDo
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: AdvarelseThree.PlaceToBe
+      value: 
+      objectReference: {fileID: 764775571}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: CrossArms.ExpressionToDo
       value: 4
@@ -15184,16 +15415,40 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 764775571}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: AdvarelseOne.AnimationName
+      value: Cross Arms
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: AdvarelseTwo.AnimationName
+      value: Cross Arms
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: Idle.AnimationOverBodyName
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: AdvarelseOne.ExpressionToDo
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: AdvarelseTwo.ExpressionToDo
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.size
-      value: 16
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: AdvarelseThree.AnimationName
+      value: Cross Arms
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: PushPlayerAway.AnimationName
       value: Push
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: AdvarelseThree.ExpressionToDo
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: PushPlayerAway.ExpressionToDo
@@ -15225,19 +15480,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[4].Name
-      value: Walk
+      value: Wait
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[5].Name
-      value: Explain
-      objectReference: {fileID: 0}
-    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
-      propertyPath: NPCDoingList.Array.data[6].Name
       value: Walk
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
-      propertyPath: NPCDoingList.Array.data[7].Name
+      propertyPath: NPCDoingList.Array.data[6].Name
       value: Explain
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[7].Name
+      value: Walk
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[8].Name
@@ -15245,19 +15500,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[9].Name
-      value: Walk
+      value: Press Buttons
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[0].Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9d7a6c7f0fa0a564f9a8f49c7997f671, type: 3}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[10].Name
-      value: Explain
+      value: Wait
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[11].Name
-      value: Walk
+      value: Press Buttons Long
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[12].Name
-      value: Explain
+      value: Walk
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[13].Name
@@ -15265,12 +15524,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[14].Name
-      value: Walk
+      value: Wait
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[15].Name
+      value: Walk
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[16].Name
+      value: Explain
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[17].Name
+      value: Explain
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[18].Name
+      value: Wait
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[19].Name
+      value: Explain
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[20].Name
+      value: Walk
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[21].Name
       value: Point
       objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[2].Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8a4a4428c3c3a564ab65f371e4a4ebc1, type: 3}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[3].Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: a7b3476ebdb61184cac41559cfd8a0f7, type: 3}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[5].Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 91beaac0c23e12e4eb48dcac3907f03f, type: 3}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[6].Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8a3ebed271fa5ff4682e3a2d4e14d7b1, type: 3}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[8].Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 24b3ae515e75e3943a954a2e5788bcec, type: 3}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[9].Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 156a42324fb62a34c8feee3e82f3dc0d, type: 3}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCMenuScript.Array.data[5].Name
       value: Point
@@ -15280,8 +15587,40 @@ PrefabInstance:
       value: Cross Arms
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[11].Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 79457fb5c5c98684bb568d46b12a6fce, type: 3}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[13].Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 33e776ef1a72ece40a7cc92a320e3306, type: 3}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[15].Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1af9a4c4d37a3b54381e80ed12398982, type: 3}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[16].Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: c49ab95500583dc42bb5ff043f5268d8, type: 3}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[17].Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 77a040c74019fe8499ddc453cb0fbdb4, type: 3}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[19].Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 0f46d8479635c2246a527f906cbcfd79, type: 3}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: AdvarelseOne.AnimationOverBodyName
+      value: Cross Arms Overbody
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: AdvarelseTwo.AnimationOverBodyName
+      value: Cross Arms Overbody
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[0].Importen
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[1].Importen
@@ -15337,19 +15676,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[4].Name
-      value: Walk
+      value: Wait
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[5].Name
-      value: Explain
-      objectReference: {fileID: 0}
-    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
-      propertyPath: OLDNPCMenuScript.Array.data[6].Name
       value: Walk
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
-      propertyPath: OLDNPCMenuScript.Array.data[7].Name
+      propertyPath: OLDNPCMenuScript.Array.data[6].Name
       value: Explain
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[7].Name
+      value: Walk
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[8].Name
@@ -15357,7 +15696,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[9].Name
-      value: Walk
+      value: Press Buttons
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: AdvarelseThree.AnimationOverBodyName
+      value: Cross Arms Overbody
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[0].PlaceToBe
@@ -15388,9 +15731,33 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[16].Importen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[17].Importen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[18].Importen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[19].Importen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[1].PlaceToBe
       value: 
       objectReference: {fileID: 593223693}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[20].Importen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[21].Importen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[2].PlaceToBe
       value: 
@@ -15402,19 +15769,19 @@ PrefabInstance:
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[4].PlaceToBe
       value: 
-      objectReference: {fileID: 457118507}
+      objectReference: {fileID: 764775571}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[5].PlaceToBe
       value: 
-      objectReference: {fileID: 764775571}
+      objectReference: {fileID: 457118507}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[6].PlaceToBe
       value: 
-      objectReference: {fileID: 1721691494}
+      objectReference: {fileID: 764775571}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[7].PlaceToBe
       value: 
-      objectReference: {fileID: 764775571}
+      objectReference: {fileID: 1721691494}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[8].PlaceToBe
       value: 
@@ -15422,7 +15789,7 @@ PrefabInstance:
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[9].PlaceToBe
       value: 
-      objectReference: {fileID: 1431617505}
+      objectReference: {fileID: 329353329}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCMenuScript.Array.data[5].Importen
       value: 1
@@ -15432,16 +15799,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[0].Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9d7a6c7f0fa0a564f9a8f49c7997f671, type: 3}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[10].Name
-      value: Explain
+      value: Wait
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[11].Name
-      value: Walk
+      value: Press Buttons Long
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[12].Name
-      value: Explain
+      value: Walk
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[13].Name
@@ -15449,12 +15820,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[14].Name
-      value: Walk
+      value: Wait
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[15].Name
-      value: Press Buttons
+      value: Walk
       objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[16].Name
+      value: Explain
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[17].Name
+      value: Explain
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[18].Name
+      value: Wait
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[19].Name
+      value: Explain
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[20].Name
+      value: Walk
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[21].Name
+      value: Point
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[2].Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8a4a4428c3c3a564ab65f371e4a4ebc1, type: 3}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[3].Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: a7b3476ebdb61184cac41559cfd8a0f7, type: 3}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[5].Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 91beaac0c23e12e4eb48dcac3907f03f, type: 3}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[6].Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8a3ebed271fa5ff4682e3a2d4e14d7b1, type: 3}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[8].Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 24b3ae515e75e3943a954a2e5788bcec, type: 3}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[9].Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 156a42324fb62a34c8feee3e82f3dc0d, type: 3}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: PushPlayerAway.AnimationOverBodyName
       value: null
@@ -15462,15 +15881,15 @@ PrefabInstance:
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[10].PlaceToBe
       value: 
-      objectReference: {fileID: 764775571}
+      objectReference: {fileID: 329353329}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[11].PlaceToBe
       value: 
-      objectReference: {fileID: 258881135}
+      objectReference: {fileID: 329353329}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[12].PlaceToBe
       value: 
-      objectReference: {fileID: 764775571}
+      objectReference: {fileID: 1431617505}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[13].PlaceToBe
       value: 
@@ -15478,9 +15897,33 @@ PrefabInstance:
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[14].PlaceToBe
       value: 
-      objectReference: {fileID: 416756468}
+      objectReference: {fileID: 764775571}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[15].PlaceToBe
+      value: 
+      objectReference: {fileID: 258881135}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[16].PlaceToBe
+      value: 
+      objectReference: {fileID: 764775571}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[17].PlaceToBe
+      value: 
+      objectReference: {fileID: 764775571}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[18].PlaceToBe
+      value: 
+      objectReference: {fileID: 764775571}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[19].PlaceToBe
+      value: 
+      objectReference: {fileID: 764775571}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[20].PlaceToBe
+      value: 
+      objectReference: {fileID: 416756468}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[21].PlaceToBe
       value: 
       objectReference: {fileID: 1785997973}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
@@ -15492,8 +15935,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[11].Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 79457fb5c5c98684bb568d46b12a6fce, type: 3}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[13].Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 33e776ef1a72ece40a7cc92a320e3306, type: 3}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[15].Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1af9a4c4d37a3b54381e80ed12398982, type: 3}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[16].Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: c49ab95500583dc42bb5ff043f5268d8, type: 3}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[17].Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 77a040c74019fe8499ddc453cb0fbdb4, type: 3}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[19].Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 0f46d8479635c2246a527f906cbcfd79, type: 3}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[0].Importen
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[1].Importen
@@ -15549,19 +16016,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[4].AnimationName
-      value: Walk
+      value: Idle
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[5].AnimationName
-      value: Talk
-      objectReference: {fileID: 0}
-    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
-      propertyPath: NPCDoingList.Array.data[6].AnimationName
       value: Walk
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
-      propertyPath: NPCDoingList.Array.data[7].AnimationName
+      propertyPath: NPCDoingList.Array.data[6].AnimationName
       value: Talk
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[7].AnimationName
+      value: Walk
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[8].AnimationName
@@ -15569,7 +16036,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[9].AnimationName
-      value: Walk
+      value: Press Buttons
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[0].PlaceToBe
@@ -15600,9 +16067,33 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[16].Importen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[17].Importen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[18].Importen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[19].Importen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[1].PlaceToBe
       value: 
       objectReference: {fileID: 593223693}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[20].Importen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[21].Importen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[2].PlaceToBe
       value: 
@@ -15614,19 +16105,19 @@ PrefabInstance:
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[4].PlaceToBe
       value: 
-      objectReference: {fileID: 457118507}
+      objectReference: {fileID: 764775571}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[5].PlaceToBe
       value: 
-      objectReference: {fileID: 764775571}
+      objectReference: {fileID: 457118507}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[6].PlaceToBe
       value: 
-      objectReference: {fileID: 1721691494}
+      objectReference: {fileID: 764775571}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[7].PlaceToBe
       value: 
-      objectReference: {fileID: 764775571}
+      objectReference: {fileID: 1721691494}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[8].PlaceToBe
       value: 
@@ -15634,22 +16125,22 @@ PrefabInstance:
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[9].PlaceToBe
       value: 
-      objectReference: {fileID: 1431617505}
+      objectReference: {fileID: 329353329}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[0].ExpressionToDo
       value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[10].AnimationName
-      value: Talk
+      value: Press Buttons
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[11].AnimationName
-      value: Walk
+      value: Press Buttons
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[12].AnimationName
-      value: Talk
+      value: Walk
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[13].AnimationName
@@ -15657,15 +16148,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[14].AnimationName
-      value: Walk
+      value: Idle
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[15].AnimationName
-      value: 
+      value: Walk
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[16].AnimationName
+      value: Talk
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[17].AnimationName
+      value: Talk
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[18].AnimationName
+      value: Idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[19].AnimationName
+      value: Talk
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[1].ExpressionToDo
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[20].AnimationName
+      value: Walk
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[2].ExpressionToDo
@@ -15681,15 +16192,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[5].ExpressionToDo
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
-      propertyPath: NPCDoingList.Array.data[6].ExpressionToDo
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
-      propertyPath: NPCDoingList.Array.data[7].ExpressionToDo
+      propertyPath: NPCDoingList.Array.data[6].ExpressionToDo
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[7].ExpressionToDo
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[8].ExpressionToDo
@@ -15697,7 +16208,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[9].ExpressionToDo
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCMenuScript.Array.data[5].AnimationName
@@ -15706,15 +16217,15 @@ PrefabInstance:
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[10].PlaceToBe
       value: 
-      objectReference: {fileID: 764775571}
+      objectReference: {fileID: 329353329}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[11].PlaceToBe
       value: 
-      objectReference: {fileID: 258881135}
+      objectReference: {fileID: 329353329}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[12].PlaceToBe
       value: 
-      objectReference: {fileID: 764775571}
+      objectReference: {fileID: 1431617505}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[13].PlaceToBe
       value: 
@@ -15722,33 +16233,81 @@ PrefabInstance:
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[14].PlaceToBe
       value: 
-      objectReference: {fileID: 416756468}
+      objectReference: {fileID: 764775571}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[15].PlaceToBe
+      value: 
+      objectReference: {fileID: 258881135}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[16].PlaceToBe
+      value: 
+      objectReference: {fileID: 764775571}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[17].PlaceToBe
+      value: 
+      objectReference: {fileID: 764775571}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[18].PlaceToBe
+      value: 
+      objectReference: {fileID: 764775571}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[19].PlaceToBe
+      value: 
+      objectReference: {fileID: 764775571}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[20].PlaceToBe
+      value: 
+      objectReference: {fileID: 416756468}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[21].PlaceToBe
       value: 
       objectReference: {fileID: 1785997973}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[10].ExpressionToDo
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
-      propertyPath: NPCDoingList.Array.data[11].ExpressionToDo
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[11].ExpressionToDo
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[12].ExpressionToDo
-      value: 11
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[13].ExpressionToDo
-      value: 7
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[14].ExpressionToDo
-      value: 7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[15].ExpressionToDo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[16].ExpressionToDo
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[17].ExpressionToDo
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[18].ExpressionToDo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[19].ExpressionToDo
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[20].ExpressionToDo
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[21].ExpressionToDo
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
@@ -15797,19 +16356,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[4].AnimationName
-      value: Walk
+      value: Idle
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[5].AnimationName
-      value: Talk
-      objectReference: {fileID: 0}
-    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
-      propertyPath: OLDNPCMenuScript.Array.data[6].AnimationName
       value: Walk
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
-      propertyPath: OLDNPCMenuScript.Array.data[7].AnimationName
+      propertyPath: OLDNPCMenuScript.Array.data[6].AnimationName
       value: Talk
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[7].AnimationName
+      value: Walk
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[8].AnimationName
@@ -15817,7 +16376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[9].AnimationName
-      value: Walk
+      value: Press Buttons
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[0].ExpressionToDo
@@ -15825,15 +16384,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[10].AnimationName
-      value: Talk
+      value: Press Buttons
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[11].AnimationName
-      value: Walk
+      value: Press Buttons
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[12].AnimationName
-      value: Talk
+      value: Walk
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[13].AnimationName
@@ -15841,15 +16400,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[14].AnimationName
-      value: Walk
+      value: Idle
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[15].AnimationName
-      value: Press Buttons
+      value: Walk
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[16].AnimationName
+      value: Talk
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[17].AnimationName
+      value: Talk
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[18].AnimationName
+      value: Idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[19].AnimationName
+      value: Talk
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[1].ExpressionToDo
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[20].AnimationName
+      value: Walk
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[2].ExpressionToDo
@@ -15865,15 +16444,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[5].ExpressionToDo
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
-      propertyPath: OLDNPCMenuScript.Array.data[6].ExpressionToDo
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
-      propertyPath: OLDNPCMenuScript.Array.data[7].ExpressionToDo
+      propertyPath: OLDNPCMenuScript.Array.data[6].ExpressionToDo
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[7].ExpressionToDo
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[8].ExpressionToDo
@@ -15881,31 +16460,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[9].ExpressionToDo
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[10].ExpressionToDo
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
-      propertyPath: OLDNPCMenuScript.Array.data[11].ExpressionToDo
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[11].ExpressionToDo
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[12].ExpressionToDo
-      value: 11
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[13].ExpressionToDo
-      value: 7
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[14].ExpressionToDo
-      value: 7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[15].ExpressionToDo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[16].ExpressionToDo
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[17].ExpressionToDo
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[18].ExpressionToDo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[19].ExpressionToDo
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[20].ExpressionToDo
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[21].ExpressionToDo
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[0].AnimationOverBodyName
@@ -15925,19 +16528,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[4].AnimationOverBodyName
-      value: 
+      value: Null
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[5].AnimationOverBodyName
-      value: OverBody Talk
-      objectReference: {fileID: 0}
-    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
-      propertyPath: NPCDoingList.Array.data[6].AnimationOverBodyName
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
-      propertyPath: NPCDoingList.Array.data[7].AnimationOverBodyName
+      propertyPath: NPCDoingList.Array.data[6].AnimationOverBodyName
       value: OverBody Talk
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[7].AnimationOverBodyName
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[8].AnimationOverBodyName
@@ -15945,22 +16548,54 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[9].AnimationOverBodyName
-      value: 
+      value: null
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[10].AnimationOverBodyName
-      value: OverBody Talk
+      value: null
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[11].AnimationOverBodyName
+      value: null
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[12].AnimationOverBodyName
-      value: OverBody Talk
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[13].AnimationOverBodyName
       value: OverBody Talk
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[14].AnimationOverBodyName
+      value: Null
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[15].AnimationOverBodyName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[16].AnimationOverBodyName
+      value: OverBody Talk
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[17].AnimationOverBodyName
+      value: OverBody Talk
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[18].AnimationOverBodyName
+      value: Null
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[19].AnimationOverBodyName
+      value: OverBody Talk
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[20].AnimationOverBodyName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: NPCDoingList.Array.data[21].AnimationOverBodyName
       value: Point
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
@@ -15984,12 +16619,20 @@ PrefabInstance:
       value: OverBody Talk
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[4].AnimationOverBodyName
+      value: Null
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[5].AnimationOverBodyName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[6].AnimationOverBodyName
       value: OverBody Talk
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[7].AnimationOverBodyName
-      value: OverBody Talk
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[8].AnimationOverBodyName
@@ -15997,19 +16640,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[9].AnimationOverBodyName
-      value: 
+      value: null
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[10].AnimationOverBodyName
-      value: OverBody Talk
+      value: null
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[11].AnimationOverBodyName
-      value: 
+      value: null
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[12].AnimationOverBodyName
-      value: OverBody Talk
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[13].AnimationOverBodyName
@@ -16017,11 +16660,155 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[14].AnimationOverBodyName
-      value: 
+      value: Null
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.data[15].AnimationOverBodyName
-      value: null
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[16].AnimationOverBodyName
+      value: OverBody Talk
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[17].AnimationOverBodyName
+      value: OverBody Talk
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[18].AnimationOverBodyName
+      value: Null
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[19].AnimationOverBodyName
+      value: OverBody Talk
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: OLDNPCMenuScript.Array.data[21].AnimationOverBodyName
+      value: Point
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[4]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[5]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[6]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[7]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[8]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[70]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[76]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[79]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[80]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[92]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[93]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[94]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[106]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[107]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[108]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[113]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[114]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[115]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[116]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[117]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[122]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[123]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[124]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[127]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[129]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[133]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033118239836355434, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[147]
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5925864781151661338, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: m_Enabled
@@ -16066,6 +16853,14 @@ PrefabInstance:
     - target: {fileID: 7293697355277456982, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: m_Effectors.Array.data[0].m_Style.color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8991389841184170858, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[75]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8991389841184170858, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[78]
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9009641022450665528, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16122,6 +16917,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9009641022450665528, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       insertIndex: 13
       addedObject: {fileID: 1634255633}
+    - targetCorrespondingSourceObject: {fileID: 9009641022450665528, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 848580871}
     - targetCorrespondingSourceObject: {fileID: 6554049446473682121, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1515651879}
@@ -16135,6 +16933,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1167380217172817428, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1891779639}
+    - targetCorrespondingSourceObject: {fileID: 1167380217172817428, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1891779640}
   m_SourcePrefab: {fileID: 100100000, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
 --- !u!1001 &1395593123
 PrefabInstance:
@@ -18668,6 +19469,44 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &1891779640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891779628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2163de355e8fd8e4b83b631e07455323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  updateMethod: 0
+  skinnedMeshRenderer: {fileID: 1503202035}
+  blendShapes:
+  - phoneme: A
+    index: 5
+    maxWeight: 1
+  - phoneme: I
+    index: 7
+    maxWeight: 1
+  - phoneme: U
+    index: 3
+    maxWeight: 1
+  - phoneme: E
+    index: 6
+    maxWeight: 1
+  - phoneme: O
+    index: 3
+    maxWeight: 1
+  - phoneme: '-'
+    index: -1
+    maxWeight: 1
+  maxBlendShapeValue: 100
+  minVolume: -2.5
+  maxVolume: -1.5
+  smoothness: 0.05
+  usePhonemeBlend: 0
 --- !u!1001 &1926489109
 PrefabInstance:
   m_ObjectHideFlags: 0

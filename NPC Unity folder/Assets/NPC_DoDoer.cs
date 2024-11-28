@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Animations;
 using Unity.LiveCapture.ARKitFaceCapture;
+using UnityEngine.UIElements;
 
 [System.Serializable]
 public class NPCDo
@@ -14,8 +15,9 @@ public class NPCDo
     public GameObject PlaceToBe;
     public bool Importen;
     public Expression ExpressionToDo;
+    public AudioClip Sound;
 
-    NPCDo(string _Name, string _AnimationName, string _AnimationOverBodyName, GameObject _PlaceToBe, bool importen, Expression expressionToDo)
+    NPCDo(string _Name, string _AnimationName, string _AnimationOverBodyName, GameObject _PlaceToBe, bool importen, Expression expressionToDo, AudioClip sound)
     {
         Name = _Name;
         AnimationName = _AnimationName;
@@ -23,6 +25,7 @@ public class NPCDo
         PlaceToBe = _PlaceToBe;
         Importen = importen;
         ExpressionToDo = expressionToDo;
+        Sound = sound;
     }
 }
 
@@ -39,7 +42,10 @@ public class NPC_DoDoer : MonoBehaviour
 
     public List<NPCDo> NPCMenuScript;
 
-    public bool KSpurgt;
+    public bool MoveOn;
+    public float DeadTimer;
+    public NPCDo RepeatableDoNow;
+    public float RepeatTimer;
 
     public float Speed;
     public Animator Ani;
@@ -56,6 +62,11 @@ public class NPC_DoDoer : MonoBehaviour
     public NPCDo WalkBack;
     public NPCDo CrossArms;
 
+    public int AdvarelseCounter;
+    public NPCDo AdvarelseOne;
+    public NPCDo AdvarelseTwo;
+    public NPCDo AdvarelseThree;
+
     public bool BackedUp;
 
     public float TalkBlend;
@@ -70,6 +81,9 @@ public class NPC_DoDoer : MonoBehaviour
 
     public float detectionRadius = 30f; // Range of the detection
     public float detectionAngle = 25f;  // Half of the cone angle
+
+    [Header("Audio")]
+    public AudioSource AudioSource;
 
     [Header("Rotation Settings")]
     public GameObject Head;
@@ -113,7 +127,40 @@ public class NPC_DoDoer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Temperment < 100)
+        {
+            if (Temperment < 80)
+            {
+                if (Temperment > 40)
+                {
+                    if (AdvarelseCounter <= 0)
+                    {
+                        Debug.Log("AdvarelseCounter");
+
+                        AdvarelseCounter = 1;
+                        NewDoIsNeeded(AdvarelseOne);
+                    }
+                }
+            }
+            else
+            {
+                if (AdvarelseCounter <= 1)
+                {
+                    AdvarelseCounter = 2;
+                    NewDoIsNeeded(AdvarelseTwo);    
+                }
+            }
+        }
+        else
+        {
+            if (AdvarelseCounter <= 2)
+            {
+                AdvarelseCounter = 3;
+                NewDoIsNeeded(AdvarelseThree);
+            }
+        }
+
+
 
         if (DoNow.Name != "Turn")
         {
@@ -179,7 +226,12 @@ public class NPC_DoDoer : MonoBehaviour
 
                 if (Vector3.Distance(transform.position, Player.transform.position) > PersonalSpace + .5f)
                 {
-                    GetNextDo();
+                    NewDoIsNeeded(CrossArms);
+
+                    if (AudioSource.isPlaying == false)
+                    {
+                        GetNextDo();
+                    }
                 }
                 else
                 {
@@ -202,16 +254,29 @@ public class NPC_DoDoer : MonoBehaviour
             {
                 if (Vector3.Distance(transform.position, Player.transform.position) > PersonalSpace + .5f)
                 {
-                    Debug.Log("Do Cross Arms");
+                    if (AudioSource.isPlaying == false)
+                    {
+                        Debug.Log("Do Cross Arms");
 
-                    SmoothOverbodyTransition = false;
-                    GetNextDo();
+                        SmoothOverbodyTransition = false;
+                        GetNextDo();
+                    }
                 }
                 else
                 {
                     Debug.Log("Set Push");
 
                     NewDoIsNeeded(PushPlayerAway);
+                }
+            }
+            else
+            {
+                if (AudioSource.isPlaying == false)
+                {
+                    Debug.Log("Do Cross Arms");
+
+                    SmoothOverbodyTransition = false;
+                    GetNextDo();
                 }
             } 
         }
@@ -265,13 +330,16 @@ public class NPC_DoDoer : MonoBehaviour
             }
         }
 
-        if (DoNow.Name != "Press Buttons" && DoNow.Name != "Cross Arms" && DoNow.Name != "Push")
+        if (DoNow.Name != "Press Buttons" && DoNow.Name != "Push")
         {
             if (BackedUp == false)
             {
                 if (Vector3.Distance(transform.position, Player.transform.position) < PersonalSpace)
                 {
-                    NewDoIsNeeded(WalkBack);
+                    if (DoNow.Name != "Walk Back")
+                    {
+                        NewDoIsNeeded(WalkBack);
+                    }
                 }
             }
             else
@@ -279,7 +347,7 @@ public class NPC_DoDoer : MonoBehaviour
                 if (Vector3.Distance(transform.position, Player.transform.position) < PersonalSpace)
                 {
                     Debug.Log("Cross Arms 1: " + DoNow.Name);
-                    NewDoIsNeeded(CrossArms);
+                    NewDoIsNeeded(PushPlayerAway);
                 }
             }
         }
@@ -288,23 +356,106 @@ public class NPC_DoDoer : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, Player.transform.position) > PersonalSpace)
             {
-                GetNextDo();
+                if (AudioSource.isPlaying == false)
+                {
+                    GetNextDo();
+                }
             }
             else
             {
-                NewDoIsNeeded(PushPlayerAway);
+                if (AudioSource.isPlaying == false)
+                {
+                    if (DoNow.Name != "Push")
+                    {
+                        NewDoIsNeeded(PushPlayerAway);
+                    }
+                }
             }
         }
 
-        if (DoNow.Name == "Explain" || DoNow.Name == "Press Buttons")
+        if (DoNow.Name == "Explain")
         {
-            if (KSpurgt == true)
+            if (AudioSource.isPlaying == false || MoveOn == true)
             {
-                KSpurgt = false;
+                MoveOn = false;
 
                 SetOverBodyAnimation("null");
 
                 GetNextDo();
+            }
+        }
+
+        if (DoNow.Name == "Advarelse")
+        {
+            if (AudioSource.isPlaying == false || MoveOn == true)
+            {
+                if (AdvarelseCounter >= 3)
+                {
+                    Time.timeScale = 0;
+                    AudioSource.enabled = false;
+                }
+
+
+                MoveOn = false;
+
+                SetOverBodyAnimation("null");
+
+                GetNextDo();
+            }
+        }
+
+        if (DoNow.Name == "Press Buttons")
+        {
+            if (AudioSource.isPlaying == false || MoveOn == true)
+            {
+                MoveOn = false;
+
+                SetOverBodyAnimation("null");
+
+                GetNextDo();
+            }
+        }
+
+        if (DoNow.Name == "Press Buttons Long")
+        {
+            if (DeadTimer > 90 || MoveOn == true)
+            {
+                MoveOn = false;
+
+                SetOverBodyAnimation("null");
+
+                GetNextDo();
+            }
+            else
+            {
+                DeadTimer += Time.deltaTime;
+            }
+        }
+
+        if (DoNow.Name == "Wait")
+        {
+            if (MoveOn == true)
+            {
+                MoveOn = false;
+
+                SetOverBodyAnimation("null");
+
+                GetNextDo();
+            }
+            else
+            {
+                if (RepeatTimer > 60)
+                {
+                    NewDoIsNeeded(RepeatableDoNow);
+
+
+                    RepeatTimer = 0;
+                }
+                else
+                {
+                    RepeatTimer += Time.deltaTime;
+                }
+            
             }
         }
     }
@@ -426,6 +577,11 @@ public class NPC_DoDoer : MonoBehaviour
 
     public void GetNextDo()
     {
+        if (NPCDoingList[0].Name == "Wait")
+        {
+            RepeatableDoNow = DoNow;
+        }
+
         DoNow = NPCDoingList[0];
         RemoveDo(0);
 
@@ -477,6 +633,12 @@ public class NPC_DoDoer : MonoBehaviour
         if (DoNow.PlaceToBe != null)
         {
             CheckPointLastPossing = DoNow.PlaceToBe.transform.position;
+        }
+
+        if(DoNow.Sound != null)
+        {
+            AudioSource.clip = DoNow.Sound;
+            AudioSource.Play();
         }
 
         if (DoNow.Name == "Cross Arms" || DoNow.Name == "Walk Back")
