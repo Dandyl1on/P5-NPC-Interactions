@@ -68,6 +68,7 @@ public class NPC_DoDoer : MonoBehaviour
     public NPCDo CrossArms;
     public NPCDo Focus;
     public NPCDo DoSomethingElse;
+    public NPCDo Throw;
 
     public int AdvarelseCounter;
     public NPCDo AdvarelseOne;

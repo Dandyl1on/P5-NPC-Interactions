@@ -6,6 +6,7 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 public class IsBeingGrabbed : MonoBehaviour
 {
     public NPCDo NPCDoGrabReation;
+    public NPCDo NPCDoThrowReation;
 
     XRGrabInteractable interactable;
     public NPC_DoDoer nPC_DoDoer;
@@ -32,6 +33,14 @@ public class IsBeingGrabbed : MonoBehaviour
                     Once = true;
                 }
             }
+        }
+
+        if (interactable.Dropped == true)
+        {
+            //Physic Jakob her
+
+             nPC_DoDoer.NewDoIsNeeded(nPC_DoDoer.Throw);
+            
         }
     }
 }
