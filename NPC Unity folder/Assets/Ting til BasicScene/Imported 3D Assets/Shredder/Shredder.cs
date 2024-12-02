@@ -8,6 +8,10 @@ public class Shredder : MonoBehaviour
     [SerializeField] GameObject paperParticles;
     AudioSource paperShredSound;
 
+    public bool YourTurn;
+
+    public GameObject Fire;
+
     private void Start()
     {
         paperShredSound = GetComponent<AudioSource>();
@@ -20,6 +24,15 @@ public class Shredder : MonoBehaviour
             Destroy(other.gameObject);
             Instantiate(paperParticles);
             paperShredSound.Play();
+
+            if (YourTurn == true)
+            {
+                FindObjectOfType<NPC_DoDoer>().MoveOn = true;
+
+                YourTurn = false;
+            }
+
+            Fire.SetActive(true);
         }
     }
 }

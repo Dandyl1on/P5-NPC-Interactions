@@ -26,6 +26,8 @@ public class PCMouseScript : MonoBehaviour
 
     bool popupHappened = false;
 
+    public bool YourTurn;
+
     private void Start()
     {
         //yoinkScript = vrControllerHandRight.GetComponent<ControllerAnimator>();
@@ -106,6 +108,13 @@ public class PCMouseScript : MonoBehaviour
 
                 deleteButton.SetActive(false);
                 sendButton.SetActive(false);
+
+                if (YourTurn == true)
+                {
+                    FindObjectOfType<NPC_DoDoer>().MoveOn = true;
+
+                    YourTurn = false;
+                }
             }
         }
 

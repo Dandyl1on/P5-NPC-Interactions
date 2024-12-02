@@ -9,6 +9,7 @@ public class FireAlarm : MonoBehaviour
     AudioSource sprinkler1Sound, sprinkler2Sound;
     public bool fireOn;
     bool alarmIsPlaying;
+    public GameObject Fire;
 
     void Start()
     {
@@ -46,6 +47,11 @@ public class FireAlarm : MonoBehaviour
         if (other.gameObject.CompareTag("hand"))
         {
             fireOn = true;
+
+            if (Fire.active == false)
+            {
+                FindObjectOfType<NPC_DoDoer>().Temperment += 100;
+            }
         }    
     }
 }

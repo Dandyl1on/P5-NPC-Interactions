@@ -11,6 +11,8 @@ public class CoffeMachineControl : MonoBehaviour
     XRGrabInteractable mugScript;
     AudioSource coffeeMachineSound;
 
+    public bool YourTurn;
+
     void Start()
     {
         ChangeStreams(false);
@@ -43,5 +45,12 @@ public class CoffeMachineControl : MonoBehaviour
         ChangeStreams(false);
         mugScript.enabled = true;
         mugCoffee.SetActive(true);
+
+        if (YourTurn == true)
+        {
+            FindObjectOfType<NPC_DoDoer>().MoveOn = true;
+
+            YourTurn = false;
+        }
     }
 }

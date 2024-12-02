@@ -6,6 +6,8 @@ using UnityEngine.Animations;
 using Unity.LiveCapture.ARKitFaceCapture;
 using UnityEngine.UIElements;
 
+public enum TaskAssociated {None, Mail, Coffe, Printer, Shredder}
+
 [System.Serializable]
 public class NPCDo
 {
@@ -16,8 +18,9 @@ public class NPCDo
     public bool Importen;
     public Expression ExpressionToDo;
     public AudioClip Sound;
+    public TaskAssociated TaskAssociated;
 
-    NPCDo(string _Name, string _AnimationName, string _AnimationOverBodyName, GameObject _PlaceToBe, bool importen, Expression expressionToDo, AudioClip sound)
+    NPCDo(string _Name, string _AnimationName, string _AnimationOverBodyName, GameObject _PlaceToBe, bool importen, Expression expressionToDo, AudioClip sound, TaskAssociated taskAssociated)
     {
         Name = _Name;
         AnimationName = _AnimationName;
@@ -26,6 +29,7 @@ public class NPCDo
         Importen = importen;
         ExpressionToDo = expressionToDo;
         Sound = sound;
+        TaskAssociated = taskAssociated;
     }
 }
 
@@ -46,21 +50,24 @@ public class NPC_DoDoer : MonoBehaviour
     public float DeadTimer;
     public NPCDo RepeatableDoNow;
     public float RepeatTimer;
+    public bool HasActivatetTask;
 
     public float Speed;
     public Animator Ani;
 
     public bool SatTurnDegress;
-    public bool TurnAnimationFix;
 
-    public bool CheckPointMessing;
-    public Vector3 CheckPointLastPossing;
     public GameObject Player;
+    public float pushDistance;
+    public float pushSpeed;
+    public bool PushOnce;
 
     public float PersonalSpace;
     public NPCDo PushPlayerAway;
     public NPCDo WalkBack;
     public NPCDo CrossArms;
+    public NPCDo Focus;
+    public NPCDo DoSomethingElse;
 
     public int AdvarelseCounter;
     public NPCDo AdvarelseOne;
@@ -95,12 +102,15 @@ public class NPC_DoDoer : MonoBehaviour
     public SkinnedMeshRenderer skinnedMeshRenderer;
 
     public TheBlendShaper TheBlendShaper;
- //   private poosay poosay.pink = true; 
+
+
+    public float lookThreshold; // Threshold for determining "looking at" (dot product)
+    public float timeNotLooking;
+
 
     // Start is called before the first frame update
     void Start()
     {
-
         Mesh mesh = skinnedMeshRenderer.sharedMesh;
 
         string blendShapeNames = "Blendshapes: ";
@@ -116,8 +126,6 @@ public class NPC_DoDoer : MonoBehaviour
         }
 
         Debug.Log(blendShapeNames);
-
-
 
         TheBlendShaper = FindAnyObjectByType<TheBlendShaper>();
 
@@ -184,22 +192,6 @@ public class NPC_DoDoer : MonoBehaviour
             {
                 SmoothOverbodyTransitionDuration -= Time.deltaTime;
                 Ani.SetLayerWeight(1, SmoothOverbodyTransitionDuration);
-            }
-        }
-
-
-
-        if (DoNow.PlaceToBe != null)
-        {
-            if (CheckPointLastPossing != DoNow.PlaceToBe.transform.position)
-            {
-                CheckPointLastPossing = DoNow.PlaceToBe.transform.position;
-                SetAnimation("Turn2");
-                SatTurnDegress = false;
-            }
-            else
-            {
-                Ani.SetBool("Turn2", false);
             }
         }
 
@@ -315,18 +307,8 @@ public class NPC_DoDoer : MonoBehaviour
 
             if (Ani.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && Ani.GetCurrentAnimatorStateInfo(0).IsName("Turn"))
             {
-                if (TurnAnimationFix == false)
-                {
-                    GetNextDo();
-                    SatTurnDegress = false;
-                    CheckPointMessing = false;
-
-                    TurnAnimationFix = true;
-                }
-                else
-                {
-                    SetAnimation("Turn2");
-                }
+                GetNextDo();
+                SatTurnDegress = false;
             }
         }
 
@@ -359,10 +341,19 @@ public class NPC_DoDoer : MonoBehaviour
                 if (AudioSource.isPlaying == false)
                 {
                     GetNextDo();
+
+                    PushOnce = false;
                 }
             }
             else
             {
+                if (PushOnce == false)
+                {
+                    PushPlayerForward();
+
+                    PushOnce = true;
+                }
+
                 if (AudioSource.isPlaying == false)
                 {
                     if (DoNow.Name != "Push")
@@ -374,6 +365,20 @@ public class NPC_DoDoer : MonoBehaviour
         }
 
         if (DoNow.Name == "Explain")
+        {
+            PlayerNotLookingAtNPC();
+
+            if (AudioSource.isPlaying == false || MoveOn == true)
+            {
+                MoveOn = false;
+
+                SetOverBodyAnimation("null");
+
+                GetNextDo();
+            }
+        }
+
+        if (DoNow.Name == "Focus")
         {
             if (AudioSource.isPlaying == false || MoveOn == true)
             {
@@ -434,13 +439,42 @@ public class NPC_DoDoer : MonoBehaviour
 
         if (DoNow.Name == "Wait")
         {
+            if (HasActivatetTask == false)
+            {
+                if (DoNow.TaskAssociated == TaskAssociated.Mail)
+                {
+                    FindObjectOfType<PCMouseScript>().YourTurn = true;
+                }
+
+                if (DoNow.TaskAssociated == TaskAssociated.Coffe)
+                {
+                    FindObjectOfType<CoffeMachineControl>().YourTurn = true;
+                }
+
+                if (DoNow.TaskAssociated == TaskAssociated.Printer)
+                {
+                    FindObjectOfType<Printerscript>().YourTurn = true;
+                }
+
+                if (DoNow.TaskAssociated == TaskAssociated.Shredder)
+                {
+                    FindObjectOfType<Shredder>().YourTurn = true;
+                }
+
+                HasActivatetTask = true;
+            }
+
             if (MoveOn == true)
             {
+                RepeatTimer = 0;
+
                 MoveOn = false;
 
                 SetOverBodyAnimation("null");
 
                 GetNextDo();
+
+                HasActivatetTask = false;
             }
             else
             {
@@ -462,36 +496,39 @@ public class NPC_DoDoer : MonoBehaviour
 
     void DetectPlayerInCone()
     {
-        if (CheckPointMessing == false)
+        // Find all colliders in the detection radius
+        Collider[] targetsInRange = Physics.OverlapSphere(transform.position, detectionRadius);
+
+        foreach (Collider target in targetsInRange)
         {
-            // Find all colliders in the detection radius
-            Collider[] targetsInRange = Physics.OverlapSphere(transform.position, detectionRadius);
+            GameObject TargetGM = target.gameObject;
 
-            foreach (Collider target in targetsInRange)
+            if (DoNow.PlaceToBe == Player)
             {
-                if (target.gameObject == DoNow.PlaceToBe)
+                TargetGM = Player;
+            }
+
+            if (TargetGM == DoNow.PlaceToBe)
+            {
+                // Get direction to the target
+                Vector3 directionToTarget = (TargetGM.transform.position - transform.position).normalized;
+
+                // Check if the target is within the cone angle and outside a certain range
+                float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
+                float distanceToTarget = Vector3.Distance(transform.position, TargetGM.transform.position);
+
+                if (angleToTarget > detectionAngle && distanceToTarget > 2.2f) // Adjust distance as needed
                 {
-                    // Get direction to the target
-                    Vector3 directionToTarget = (target.transform.position - transform.position).normalized;
+                    Turn.PlaceToBe = DoNow.PlaceToBe;
+                    NewDoIsNeeded(Turn);
+                }
+                else
+                {
+                    // Optional: Lock rotation to only certain axes (e.g., y-axis)
+                    directionToTarget.y = 0;
 
-                    // Check if the target is within the cone angle and outside a certain range
-                    float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
-                    float distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
-
-                    if (angleToTarget > detectionAngle && distanceToTarget > 2.2f) // Adjust distance as needed
-                    {
-                        CheckPointMessing = true;
-                        Turn.PlaceToBe = DoNow.PlaceToBe;
-                        NewDoIsNeeded(Turn);
-                    }
-                    else
-                    {
-                        // Optional: Lock rotation to only certain axes (e.g., y-axis)
-                        directionToTarget.y = 0;
-
-                        // Rotate the object to face the target
-                        transform.rotation = Quaternion.LookRotation(directionToTarget);
-                    }
+                    // Rotate the object to face the target
+                    transform.rotation = Quaternion.LookRotation(directionToTarget);
                 }
             }
         }
@@ -526,9 +563,6 @@ public class NPC_DoDoer : MonoBehaviour
             Debug.Log("animationName: " + animationName);
 
             Ani.SetBool(animationName, true);
-
-
-            TurnAnimationFix = false;
         }
 
         if (DoNow.ExpressionToDo != Expression.Nothing) 
@@ -568,6 +602,44 @@ public class NPC_DoDoer : MonoBehaviour
         }
     }
 
+    private void PushPlayerForward()
+    {
+        // Calculate the target position
+        Vector3 pushDirection = transform.forward * pushDistance;
+        Vector3 targetPosition = Player.transform.position + pushDirection;
+
+        // Move the target toward the calculated position
+        Player.transform.position = Vector3.MoveTowards(Player.transform.position, targetPosition, pushSpeed * Time.deltaTime);
+    }
+
+    public void PlayerNotLookingAtNPC()
+    {
+        // Check if the object is looking at the target
+        Vector3 directionToTarget = (this.transform.position - Player.transform.position).normalized;
+        float dotProduct = Vector3.Dot(Player.transform.forward, directionToTarget);
+
+        Debug.Log(dotProduct);
+
+        if (dotProduct > lookThreshold)
+        {
+            // Object is looking at the target
+            timeNotLooking = 0f; // Reset the timer
+        }
+        else
+        {
+            // Object is not looking at the target
+            timeNotLooking += Time.deltaTime;
+
+            if (timeNotLooking >= 15)
+            {
+                Temperment += 5;
+
+                timeNotLooking = 0f;
+
+                NewDoIsNeeded(Focus);
+            }
+        }
+    }
 
 
     public void RemoveDo(int number)
@@ -594,10 +666,17 @@ public class NPC_DoDoer : MonoBehaviour
 
                 foreach (Collider target in targetsInRange)
                 {
-                    if (target.gameObject == DoNow.PlaceToBe)
+                    GameObject TargetGM = target.gameObject;
+
+                    if (DoNow.PlaceToBe == Player)
+                    {
+                        TargetGM = Player;
+                    }
+
+                    if (TargetGM == DoNow.PlaceToBe)
                     {
                         // Get direction to the target
-                        Vector3 directionToTarget = (target.transform.position - transform.position).normalized;
+                        Vector3 directionToTarget = (TargetGM.transform.position - transform.position).normalized;
 
                         // Check if the target is within the cone angle and outside a certain range
                         float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
@@ -629,11 +708,6 @@ public class NPC_DoDoer : MonoBehaviour
     {
         SetAnimation(DoNow.AnimationName);
         SetOverBodyAnimation(DoNow.AnimationOverBodyName);
-
-        if (DoNow.PlaceToBe != null)
-        {
-            CheckPointLastPossing = DoNow.PlaceToBe.transform.position;
-        }
 
         if(DoNow.Sound != null)
         {

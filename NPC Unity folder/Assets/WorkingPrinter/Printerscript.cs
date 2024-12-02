@@ -28,7 +28,9 @@ public class Printerscript : MonoBehaviour
     private Transform Endpos;
 
     public float soundclip = 9.0f;
-    
+
+    public bool YourTurn;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +57,13 @@ public class Printerscript : MonoBehaviour
                 paperCollider.enabled = true;
                 paperRb.isKinematic = false;
                 moveProgress = 0.0f;
+
+                if (YourTurn == true)
+                {
+                    FindObjectOfType<NPC_DoDoer>().MoveOn = true;
+
+                    YourTurn = false;
+                }
             }
         }
     }
