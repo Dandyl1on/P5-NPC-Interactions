@@ -379,6 +379,18 @@ public class NPC_DoDoer : MonoBehaviour
             }
         }
 
+        if (DoNow.Name == "Throw")
+        {
+            if (AudioSource.isPlaying == false || MoveOn == true)
+            {
+                MoveOn = false;
+
+                SetOverBodyAnimation("null");
+
+                GetNextDo();
+            }
+        }
+
         if (DoNow.Name == "Focus")
         {
             if (AudioSource.isPlaying == false || MoveOn == true)

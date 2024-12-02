@@ -76,6 +76,13 @@ public class PCMouseScript : MonoBehaviour
                 popup.SetActive(false);
                 blueScreen.SetActive(true);
                 PCdiedSound.Play();
+
+                if (YourTurn == true)
+                {
+                    FindObjectOfType<NPC_DoDoer>().MoveOn = true;
+
+                    YourTurn = false;
+                }
             }
         }
 
@@ -126,6 +133,13 @@ public class PCMouseScript : MonoBehaviour
 
                 deleteButton.SetActive(false);
                 sendButton.SetActive(false);
+
+                if (YourTurn == true)
+                {
+                    FindObjectOfType<NPC_DoDoer>().MoveOn = true;
+
+                    YourTurn = false;
+                }
             }
         }
     }
