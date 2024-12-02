@@ -1271,15 +1271,6 @@ MonoBehaviour:
     ExpressionToDo: 0
     Sound: {fileID: 0}
     TaskAssociated: 0
-  NPCDoThrowReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
-    Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
-    TaskAssociated: 0
   hasAlerted: 0
   throwThreshold: 0
   nPC_DoDoer: {fileID: 0}
@@ -1571,15 +1562,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCDoGrabReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
-    Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
-    TaskAssociated: 0
-  NPCDoThrowReation:
     Name: 
     AnimationName: 
     AnimationOverBodyName: 
@@ -1995,15 +1977,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCDoGrabReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
-    Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
-    TaskAssociated: 0
-  NPCDoThrowReation:
     Name: 
     AnimationName: 
     AnimationOverBodyName: 
@@ -2643,11 +2616,11 @@ PrefabInstance:
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[11].Sound
       value: 
-      objectReference: {fileID: 8300000, guid: 79457fb5c5c98684bb568d46b12a6fce, type: 3}
+      objectReference: {fileID: 8300000, guid: 397782715192f454cb9bd0f3ae4bc79c, type: 3}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[13].Sound
       value: 
-      objectReference: {fileID: 8300000, guid: 33e776ef1a72ece40a7cc92a320e3306, type: 3}
+      objectReference: {fileID: 8300000, guid: daf0b63d64e2d904aaf1bf7126d1b36a, type: 3}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[15].Sound
       value: 
@@ -7915,6 +7888,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c67f1e7b170c25f4caa1de3087c48a3a, type: 3}
       propertyPath: m_Name
       value: stul
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c67f1e7b170c25f4caa1de3087c48a3a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1693594741326145795, guid: c67f1e7b170c25f4caa1de3087c48a3a, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -30659,7 +30636,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 869192660062497926, guid: 64b6e56013821d54d967fada50924731, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.715
+      value: 0.164
       objectReference: {fileID: 0}
     - target: {fileID: 869192660062497926, guid: 64b6e56013821d54d967fada50924731, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30667,7 +30644,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 869192660062497926, guid: 64b6e56013821d54d967fada50924731, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.079
+      value: -2.492
       objectReference: {fileID: 0}
     - target: {fileID: 869192660062497926, guid: 64b6e56013821d54d967fada50924731, type: 3}
       propertyPath: m_LocalRotation.w
@@ -39343,22 +39320,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCDoGrabReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
+    Name: Explain
+    AnimationName: Talk
+    AnimationOverBodyName: OverBody Talk
+    PlaceToBe: {fileID: 2002956068}
     Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
-    TaskAssociated: 0
-  NPCDoThrowReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
-    Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
+    ExpressionToDo: 11
+    Sound: {fileID: 8300000, guid: c9bba5c6664544d4f92ece5e5cf97cd3, type: 3}
     TaskAssociated: 0
   hasAlerted: 0
   throwThreshold: 0
@@ -41828,22 +41796,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCDoGrabReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
+    Name: Explain
+    AnimationName: Talk
+    AnimationOverBodyName: OverBody Talk
+    PlaceToBe: {fileID: 2002956068}
     Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
-    TaskAssociated: 0
-  NPCDoThrowReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
-    Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
+    ExpressionToDo: 11
+    Sound: {fileID: 8300000, guid: 17c4df7c2a452c64893b4343d476ecb5, type: 3}
     TaskAssociated: 0
   hasAlerted: 0
   throwThreshold: 0
@@ -42002,15 +41961,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCDoGrabReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
-    Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
-    TaskAssociated: 0
-  NPCDoThrowReation:
     Name: 
     AnimationName: 
     AnimationOverBodyName: 
@@ -42572,15 +42522,6 @@ MonoBehaviour:
     ExpressionToDo: 11
     Sound: {fileID: 8300000, guid: 45a920d546d942549bfba750d3e96d28, type: 3}
     TaskAssociated: 0
-  NPCDoThrowReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
-    Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
-    TaskAssociated: 0
   hasAlerted: 0
   throwThreshold: 0
   nPC_DoDoer: {fileID: 0}
@@ -42973,15 +42914,6 @@ MonoBehaviour:
     Importen: 0
     ExpressionToDo: 11
     Sound: {fileID: 8300000, guid: 45a920d546d942549bfba750d3e96d28, type: 3}
-    TaskAssociated: 0
-  NPCDoThrowReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
-    Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
     TaskAssociated: 0
   hasAlerted: 0
   throwThreshold: 0
@@ -43946,22 +43878,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCDoGrabReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
+    Name: Explain
+    AnimationName: Talk
+    AnimationOverBodyName: OverBody Talk
+    PlaceToBe: {fileID: 2002956068}
     Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
-    TaskAssociated: 0
-  NPCDoThrowReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
-    Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
+    ExpressionToDo: 11
+    Sound: {fileID: 8300000, guid: c9bba5c6664544d4f92ece5e5cf97cd3, type: 3}
     TaskAssociated: 0
   hasAlerted: 0
   throwThreshold: 0
@@ -44503,16 +44426,7 @@ MonoBehaviour:
     PlaceToBe: {fileID: 0}
     Importen: 0
     ExpressionToDo: 0
-    Sound: {fileID: 0}
-    TaskAssociated: 0
-  NPCDoThrowReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
-    Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
+    Sound: {fileID: 8300000, guid: c9bba5c6664544d4f92ece5e5cf97cd3, type: 3}
     TaskAssociated: 0
   hasAlerted: 0
   throwThreshold: 0
@@ -44794,22 +44708,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCDoGrabReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
+    Name: Explain
+    AnimationName: Talk
+    AnimationOverBodyName: OverBody Talk
+    PlaceToBe: {fileID: 2002956068}
     Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
-    TaskAssociated: 0
-  NPCDoThrowReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
-    Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
+    ExpressionToDo: 11
+    Sound: {fileID: 8300000, guid: c9bba5c6664544d4f92ece5e5cf97cd3, type: 3}
     TaskAssociated: 0
   hasAlerted: 0
   throwThreshold: 0
@@ -45174,16 +45079,7 @@ MonoBehaviour:
     PlaceToBe: {fileID: 0}
     Importen: 0
     ExpressionToDo: 0
-    Sound: {fileID: 0}
-    TaskAssociated: 0
-  NPCDoThrowReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
-    Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
+    Sound: {fileID: 8300000, guid: c9bba5c6664544d4f92ece5e5cf97cd3, type: 3}
     TaskAssociated: 0
   hasAlerted: 0
   throwThreshold: 0
@@ -45504,22 +45400,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCDoGrabReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
+    Name: Explain
+    AnimationName: Talk
+    AnimationOverBodyName: OverBody Talk
+    PlaceToBe: {fileID: 2002956068}
     Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
-    TaskAssociated: 0
-  NPCDoThrowReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
-    Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
+    ExpressionToDo: 11
+    Sound: {fileID: 8300000, guid: 4c1d5bc446e57b848893a5e4c17e6daa, type: 3}
     TaskAssociated: 0
   hasAlerted: 0
   throwThreshold: 0
@@ -46009,22 +45896,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCDoGrabReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
+    Name: Explain
+    AnimationName: Talk
+    AnimationOverBodyName: OverBody Talk
+    PlaceToBe: {fileID: 2002956068}
     Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
-    TaskAssociated: 0
-  NPCDoThrowReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
-    Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
+    ExpressionToDo: 11
+    Sound: {fileID: 8300000, guid: 17c4df7c2a452c64893b4343d476ecb5, type: 3}
     TaskAssociated: 0
   hasAlerted: 0
   throwThreshold: 0
@@ -47730,22 +47608,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCDoGrabReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
+    Name: Explain
+    AnimationName: Talk
+    AnimationOverBodyName: OverBody Talk
+    PlaceToBe: {fileID: 2002956068}
     Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
-    TaskAssociated: 0
-  NPCDoThrowReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
-    Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
+    ExpressionToDo: 11
+    Sound: {fileID: 8300000, guid: 4c1d5bc446e57b848893a5e4c17e6daa, type: 3}
     TaskAssociated: 0
   hasAlerted: 0
   throwThreshold: 0
@@ -48095,22 +47964,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCDoGrabReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
+    Name: Explain
+    AnimationName: Talk
+    AnimationOverBodyName: OverBody Talk
+    PlaceToBe: {fileID: 2002956068}
     Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
-    TaskAssociated: 0
-  NPCDoThrowReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
-    Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
+    ExpressionToDo: 11
+    Sound: {fileID: 8300000, guid: 23086485022b8164c9ad89907a3837a1, type: 3}
     TaskAssociated: 0
   hasAlerted: 0
   throwThreshold: 0
@@ -48548,22 +48408,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCDoGrabReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
+    Name: Explain
+    AnimationName: Talk
+    AnimationOverBodyName: OverBody Talk
+    PlaceToBe: {fileID: 2002956068}
     Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
-    TaskAssociated: 0
-  NPCDoThrowReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
-    Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
+    ExpressionToDo: 11
+    Sound: {fileID: 8300000, guid: 17c4df7c2a452c64893b4343d476ecb5, type: 3}
     TaskAssociated: 0
   hasAlerted: 0
   throwThreshold: 0
@@ -48883,15 +48734,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCDoGrabReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
-    Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
-    TaskAssociated: 0
-  NPCDoThrowReation:
     Name: 
     AnimationName: 
     AnimationOverBodyName: 
@@ -49356,15 +49198,6 @@ MonoBehaviour:
     Importen: 0
     ExpressionToDo: 11
     Sound: {fileID: 8300000, guid: 45a920d546d942549bfba750d3e96d28, type: 3}
-    TaskAssociated: 0
-  NPCDoThrowReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
-    Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
     TaskAssociated: 0
   hasAlerted: 0
   throwThreshold: 0
@@ -49872,22 +49705,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCDoGrabReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
+    Name: Explain
+    AnimationName: Talk
+    AnimationOverBodyName: OverBody Talk
+    PlaceToBe: {fileID: 2002956068}
     Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
-    TaskAssociated: 0
-  NPCDoThrowReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
-    Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
+    ExpressionToDo: 11
+    Sound: {fileID: 8300000, guid: 17c4df7c2a452c64893b4343d476ecb5, type: 3}
     TaskAssociated: 0
   hasAlerted: 0
   throwThreshold: 0
@@ -50124,22 +49948,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCDoGrabReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
+    Name: Explain
+    AnimationName: Talk
+    AnimationOverBodyName: OverBody Talk
+    PlaceToBe: {fileID: 2002956068}
     Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
-    TaskAssociated: 0
-  NPCDoThrowReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
-    Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
+    ExpressionToDo: 11
+    Sound: {fileID: 8300000, guid: c9bba5c6664544d4f92ece5e5cf97cd3, type: 3}
     TaskAssociated: 0
   hasAlerted: 0
   throwThreshold: 0
@@ -51199,22 +51014,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCDoGrabReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
+    Name: Explain
+    AnimationName: Talk
+    AnimationOverBodyName: OverBody Talk
+    PlaceToBe: {fileID: 2002956068}
     Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
-    TaskAssociated: 0
-  NPCDoThrowReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
-    Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
+    ExpressionToDo: 11
+    Sound: {fileID: 8300000, guid: 23086485022b8164c9ad89907a3837a1, type: 3}
     TaskAssociated: 0
   hasAlerted: 0
   throwThreshold: 0
@@ -52091,22 +51897,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCDoGrabReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
+    Name: Explain
+    AnimationName: Talk
+    AnimationOverBodyName: OverBody Talk
+    PlaceToBe: {fileID: 2002956068}
     Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
-    TaskAssociated: 0
-  NPCDoThrowReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
-    Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
+    ExpressionToDo: 11
+    Sound: {fileID: 8300000, guid: 4c1d5bc446e57b848893a5e4c17e6daa, type: 3}
     TaskAssociated: 0
   hasAlerted: 0
   throwThreshold: 0
@@ -52347,22 +52144,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCDoGrabReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
+    Name: Explain
+    AnimationName: Talk
+    AnimationOverBodyName: OverBody Talk
+    PlaceToBe: {fileID: 2002956068}
     Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
-    TaskAssociated: 0
-  NPCDoThrowReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
-    Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
+    ExpressionToDo: 11
+    Sound: {fileID: 8300000, guid: 17c4df7c2a452c64893b4343d476ecb5, type: 3}
     TaskAssociated: 0
   hasAlerted: 0
   throwThreshold: 0
@@ -52665,15 +52453,6 @@ MonoBehaviour:
     Importen: 0
     ExpressionToDo: 11
     Sound: {fileID: 8300000, guid: c1ee7e25ae84d6c44968555c068fd686, type: 3}
-    TaskAssociated: 0
-  NPCDoThrowReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
-    Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
     TaskAssociated: 0
   hasAlerted: 0
   throwThreshold: 0
@@ -53242,15 +53021,6 @@ MonoBehaviour:
     Importen: 0
     ExpressionToDo: 11
     Sound: {fileID: 8300000, guid: 45a920d546d942549bfba750d3e96d28, type: 3}
-    TaskAssociated: 0
-  NPCDoThrowReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
-    Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
     TaskAssociated: 0
   hasAlerted: 0
   throwThreshold: 0
@@ -54196,15 +53966,6 @@ MonoBehaviour:
     ExpressionToDo: 11
     Sound: {fileID: 8300000, guid: 994dfdad39f47954596927e6f9e7f939, type: 3}
     TaskAssociated: 0
-  NPCDoThrowReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
-    Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
-    TaskAssociated: 0
   hasAlerted: 0
   throwThreshold: 0
   nPC_DoDoer: {fileID: 0}
@@ -54576,22 +54337,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCDoGrabReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
+    Name: Explain
+    AnimationName: Talk
+    AnimationOverBodyName: OverBody Talk
+    PlaceToBe: {fileID: 2002956068}
     Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
-    TaskAssociated: 0
-  NPCDoThrowReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
-    Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
+    ExpressionToDo: 11
+    Sound: {fileID: 8300000, guid: 23086485022b8164c9ad89907a3837a1, type: 3}
     TaskAssociated: 0
   hasAlerted: 0
   throwThreshold: 0
@@ -54901,22 +54653,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCDoGrabReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
+    Name: Explain
+    AnimationName: Talk
+    AnimationOverBodyName: OverBody Talk
+    PlaceToBe: {fileID: 2002956068}
     Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
-    TaskAssociated: 0
-  NPCDoThrowReation:
-    Name: 
-    AnimationName: 
-    AnimationOverBodyName: 
-    PlaceToBe: {fileID: 0}
-    Importen: 0
-    ExpressionToDo: 0
-    Sound: {fileID: 0}
+    ExpressionToDo: 11
+    Sound: {fileID: 8300000, guid: 23086485022b8164c9ad89907a3837a1, type: 3}
     TaskAssociated: 0
   hasAlerted: 0
   throwThreshold: 0

@@ -36,6 +36,8 @@ public class NPCDo
 
 public class NPC_DoDoer : MonoBehaviour
 {
+    public bool SmartNPCBrain;
+
     public float Temperment;
 
     public NPCDo DoNow;
@@ -108,6 +110,11 @@ public class NPC_DoDoer : MonoBehaviour
     public float lookThreshold; // Threshold for determining "looking at" (dot product)
     public float timeNotLooking;
 
+    [Header("Load Timer")]
+    public bool HasStarted;
+    public float StartTimer;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -130,12 +137,27 @@ public class NPC_DoDoer : MonoBehaviour
 
         TheBlendShaper = FindAnyObjectByType<TheBlendShaper>();
 
-        GetNextDo();
+       
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (StartTimer > 2)
+        {
+            if (HasStarted == false)
+            {
+                GetNextDo();
+
+                HasStarted = true;
+            }
+        }
+        else
+        {
+            StartTimer += Time.deltaTime;
+        }
+
+
         if (Temperment < 100)
         {
             if (Temperment < 80)
@@ -147,7 +169,11 @@ public class NPC_DoDoer : MonoBehaviour
                         Debug.Log("AdvarelseCounter");
 
                         AdvarelseCounter = 1;
-                        NewDoIsNeeded(AdvarelseOne);
+
+                        if (SmartNPCBrain == true)
+                        {
+                            NewDoIsNeeded(AdvarelseOne);
+                        }
                     }
                 }
             }
@@ -156,7 +182,11 @@ public class NPC_DoDoer : MonoBehaviour
                 if (AdvarelseCounter <= 1)
                 {
                     AdvarelseCounter = 2;
-                    NewDoIsNeeded(AdvarelseTwo);    
+
+                    if (SmartNPCBrain == true)
+                    {
+                        NewDoIsNeeded(AdvarelseTwo);
+                    }
                 }
             }
         }
@@ -219,7 +249,10 @@ public class NPC_DoDoer : MonoBehaviour
 
                 if (Vector3.Distance(transform.position, Player.transform.position) > PersonalSpace + .5f)
                 {
-                    NewDoIsNeeded(CrossArms);
+                    if (SmartNPCBrain == true)
+                    {
+                        NewDoIsNeeded(CrossArms);
+                    }
 
                     if (AudioSource.isPlaying == false)
                     {
@@ -235,8 +268,11 @@ public class NPC_DoDoer : MonoBehaviour
             }
             else
             {
-                Debug.Log("Cross Arms 2");
-                NewDoIsNeeded(CrossArms);
+                if (SmartNPCBrain == true)
+                {
+                    Debug.Log("Cross Arms 2");
+                    NewDoIsNeeded(CrossArms);
+                }
             }
         }
 
@@ -259,7 +295,10 @@ public class NPC_DoDoer : MonoBehaviour
                 {
                     Debug.Log("Set Push");
 
-                    NewDoIsNeeded(PushPlayerAway);
+                    if (SmartNPCBrain == true)
+                    {
+                        NewDoIsNeeded(PushPlayerAway);
+                    }
                 }
             }
             else
@@ -321,7 +360,10 @@ public class NPC_DoDoer : MonoBehaviour
                 {
                     if (DoNow.Name != "Walk Back")
                     {
-                        NewDoIsNeeded(WalkBack);
+                        if (SmartNPCBrain == true)
+                        {
+                            NewDoIsNeeded(WalkBack);
+                        }
                     }
                 }
             }
@@ -329,8 +371,11 @@ public class NPC_DoDoer : MonoBehaviour
             {
                 if (Vector3.Distance(transform.position, Player.transform.position) < PersonalSpace)
                 {
-                    Debug.Log("Cross Arms 1: " + DoNow.Name);
-                    NewDoIsNeeded(PushPlayerAway);
+                    if (SmartNPCBrain == true)
+                    {
+                        Debug.Log("Cross Arms 1: " + DoNow.Name);
+                        NewDoIsNeeded(PushPlayerAway);
+                    }
                 }
             }
         }
@@ -359,7 +404,10 @@ public class NPC_DoDoer : MonoBehaviour
                 {
                     if (DoNow.Name != "Push")
                     {
-                        NewDoIsNeeded(PushPlayerAway);
+                        if (SmartNPCBrain == true)
+                        {
+                            NewDoIsNeeded(PushPlayerAway);
+                        }
                     }
                 }
             }
@@ -493,7 +541,10 @@ public class NPC_DoDoer : MonoBehaviour
             {
                 if (RepeatTimer > 60)
                 {
-                    NewDoIsNeeded(RepeatableDoNow);
+                    if (SmartNPCBrain == true)
+                    {
+                        NewDoIsNeeded(RepeatableDoNow);
+                    }
 
 
                     RepeatTimer = 0;
@@ -537,11 +588,14 @@ public class NPC_DoDoer : MonoBehaviour
                 }
                 else
                 {
-                    // Optional: Lock rotation to only certain axes (e.g., y-axis)
-                    directionToTarget.y = 0;
+                    if (SmartNPCBrain == true)
+                    {
+                        // Optional: Lock rotation to only certain axes (e.g., y-axis)
+                        directionToTarget.y = 0;
 
-                    // Rotate the object to face the target
-                    transform.rotation = Quaternion.LookRotation(directionToTarget);
+                        // Rotate the object to face the target
+                        transform.rotation = Quaternion.LookRotation(directionToTarget);
+                    }
                 }
             }
         }
@@ -578,15 +632,18 @@ public class NPC_DoDoer : MonoBehaviour
             Ani.SetBool(animationName, true);
         }
 
-        if (DoNow.ExpressionToDo != Expression.Nothing) 
+        if (SmartNPCBrain == true)
         {
-            if (DoNow.ExpressionToDo != Expression.Neutral)
+            if (DoNow.ExpressionToDo != Expression.Nothing)
             {
-                TheBlendShaper.currentExpression = DoNow.ExpressionToDo;
-            }
-            else
-            {
-                SetFaceToDefault();
+                if (DoNow.ExpressionToDo != Expression.Neutral)
+                {
+                    TheBlendShaper.currentExpression = DoNow.ExpressionToDo;
+                }
+                else
+                {
+                    SetFaceToDefault();
+                }
             }
         }
     }
@@ -627,29 +684,32 @@ public class NPC_DoDoer : MonoBehaviour
 
     public void PlayerNotLookingAtNPC()
     {
-        // Check if the object is looking at the target
-        Vector3 directionToTarget = (this.transform.position - Player.transform.position).normalized;
-        float dotProduct = Vector3.Dot(Player.transform.forward, directionToTarget);
-
-        Debug.Log(dotProduct);
-
-        if (dotProduct > lookThreshold)
+        if (SmartNPCBrain == true)
         {
-            // Object is looking at the target
-            timeNotLooking = 0f; // Reset the timer
-        }
-        else
-        {
-            // Object is not looking at the target
-            timeNotLooking += Time.deltaTime;
+            // Check if the object is looking at the target
+            Vector3 directionToTarget = (this.transform.position - Player.transform.position).normalized;
+            float dotProduct = Vector3.Dot(Player.transform.forward, directionToTarget);
 
-            if (timeNotLooking >= 15)
+            Debug.Log(dotProduct);
+
+            if (dotProduct > lookThreshold)
             {
-                Temperment += 5;
+                // Object is looking at the target
+                timeNotLooking = 0f; // Reset the timer
+            }
+            else
+            {
+                // Object is not looking at the target
+                timeNotLooking += Time.deltaTime;
 
-                timeNotLooking = 0f;
+                if (timeNotLooking >= 15)
+                {
+                    Temperment += 5;
 
-                NewDoIsNeeded(Focus);
+                    timeNotLooking = 0f;
+
+                    NewDoIsNeeded(Focus);
+                }
             }
         }
     }

@@ -8,7 +8,6 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 public class IsBeingGrabbed : MonoBehaviour
 {
     public NPCDo NPCDoGrabReation;
-    public NPCDo NPCDoThrowReation;
 
     Rigidbody rb;
     public bool hasAlerted;
@@ -30,33 +29,38 @@ public class IsBeingGrabbed : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Once == false)
+        if (nPC_DoDoer.SmartNPCBrain == true)
         {
-            if (interactable.Grabbed == true)
+            if (Once == false)
             {
-                if (NPCDoGrabReation.Name != "")
+                if (interactable.Grabbed == true)
                 {
-                    nPC_DoDoer.NewDoIsNeeded(NPCDoGrabReation);
+                    if (NPCDoGrabReation.Name != "")
+                    {
+                        nPC_DoDoer.NewDoIsNeeded(NPCDoGrabReation);
 
-                    Once = true;
+                        Once = true;
+                    }
                 }
             }
-        }
 
-        if (interactable.Dropped == true)
-        {
-            //Debug.Log(rb.angularVelocity.magnitude);
-            //Physic Jakob her
-            if(rb.angularVelocity.magnitude > throwThreshold && hasAlerted == false)
+            if (interactable.Dropped == true)
             {
-                Debug.Log("You trhwoed an item to hard");
+                //Debug.Log(rb.angularVelocity.magnitude);
+                //Physic Jakob her
+                if (rb.angularVelocity.magnitude > throwThreshold && hasAlerted == false)
+                {
+                    Debug.Log("You trhwoed an item to hard");
 
-                nPC_DoDoer.NewDoIsNeeded(nPC_DoDoer.Throw);
-                StartCoroutine(AlertCoolDown());
+                    nPC_DoDoer.NewDoIsNeeded(nPC_DoDoer.Throw);
+                    StartCoroutine(AlertCoolDown());
+
+                    nPC_DoDoer.Temperment += 10;
+                }
+
+
+
             }
-
-
-            
         }
     }
 
