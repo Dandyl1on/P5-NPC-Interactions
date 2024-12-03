@@ -70,7 +70,7 @@ public class Printerscript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && !isMoving)
+        if (other.gameObject.CompareTag("hand") && !isMoving)
         {
             Paperlocation();   
         }

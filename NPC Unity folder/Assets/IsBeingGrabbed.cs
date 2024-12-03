@@ -11,7 +11,7 @@ public class IsBeingGrabbed : MonoBehaviour
 
     Rigidbody rb;
     public bool hasAlerted;
-    public float throwThreshold = 6.5f;
+    public float throwThreshold;
 
     XRGrabInteractable interactable;
     public NPC_DoDoer nPC_DoDoer;
@@ -24,6 +24,7 @@ public class IsBeingGrabbed : MonoBehaviour
         nPC_DoDoer = FindObjectOfType<NPC_DoDoer>();
 
         rb = GetComponent<Rigidbody>();
+        throwThreshold = 7.5f;
     }
 
     // Update is called once per frame

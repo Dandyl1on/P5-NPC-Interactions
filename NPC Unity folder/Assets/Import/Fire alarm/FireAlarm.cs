@@ -26,8 +26,9 @@ public class FireAlarm : MonoBehaviour
         {
             sprinklerParticles1.SetActive(true);
             sprinklerParticles2.SetActive(true);
+            Fire.SetActive(true);
 
-            if(alarmIsPlaying == false)
+            if (alarmIsPlaying == false)
             {
                 fireAlarmSound.Play();
                 sprinkler1Sound.Play();
@@ -39,6 +40,7 @@ public class FireAlarm : MonoBehaviour
         {
             sprinklerParticles1.SetActive(false);
             sprinklerParticles2.SetActive(false);
+            Fire.SetActive(false);
         }
     }
 
@@ -46,12 +48,11 @@ public class FireAlarm : MonoBehaviour
     {
         if (other.gameObject.CompareTag("hand"))
         {
-            fireOn = true;
-
             if (Fire.active == false)
             {
                 FindObjectOfType<NPC_DoDoer>().Temperment += 100;
             }
+            fireOn = true;
         }    
     }
 }

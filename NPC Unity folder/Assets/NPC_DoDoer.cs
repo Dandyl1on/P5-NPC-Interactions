@@ -205,7 +205,8 @@ public class NPC_DoDoer : MonoBehaviour
         {
             if (DoNow.PlaceToBe != null)
             {
-                DetectPlayerInCone();
+                //DetectPlayerInCone();
+                LookAtThatPlayer();
             }
         }
 
@@ -511,6 +512,7 @@ public class NPC_DoDoer : MonoBehaviour
 
                 if (DoNow.TaskAssociated == TaskAssociated.Coffe)
                 {
+                    Debug.Log("kaf");
                     FindObjectOfType<CoffeMachineControl>().YourTurn = true;
                 }
 
@@ -599,6 +601,43 @@ public class NPC_DoDoer : MonoBehaviour
                         transform.rotation = Quaternion.LookRotation(directionToTarget);
                     }
                 }
+            }
+        }
+    }
+
+    public void LookAtThatPlayer()
+    {
+        // Find all colliders in the detection radius
+        Collider[] targetsInRange = Physics.OverlapSphere(transform.position, detectionRadius);
+
+        foreach (Collider target in targetsInRange)
+        {
+            GameObject TargetGM = target.gameObject;
+
+            if (DoNow.PlaceToBe == Player)
+            {
+                TargetGM = Player;
+            }
+
+            if (TargetGM == DoNow.PlaceToBe)
+            {
+                // Get direction to the target
+                Vector3 directionToTarget = (TargetGM.transform.position - transform.position).normalized;
+
+                // Check if the target is within the cone angle and outside a certain range
+                float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
+                float distanceToTarget = Vector3.Distance(transform.position, TargetGM.transform.position);
+
+
+                if (SmartNPCBrain == true)
+                {
+                    // Optional: Lock rotation to only certain axes (e.g., y-axis)
+                    directionToTarget.y = 0;
+
+                    // Rotate the object to face the target
+                    transform.rotation = Quaternion.LookRotation(directionToTarget);
+                }
+
             }
         }
     }
@@ -751,14 +790,20 @@ public class NPC_DoDoer : MonoBehaviour
                     if (TargetGM == DoNow.PlaceToBe)
                     {
                         // Get direction to the target
-                        Vector3 directionToTarget = (TargetGM.transform.position - transform.position).normalized;
+                        Vector3 vec = new Vector3(TargetGM.transform.position.x, 0, TargetGM.transform.position.z);
+
+                        Vector3 directionToTarget = (vec - transform.position).normalized;
+
+                        
 
                         // Check if the target is within the cone angle and outside a certain range
                         float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
 
-                        if (angleToTarget > detectionAngle/4) // Adjust distance as needed
+                        Debug.Log("angleToTarget Det vi kigger på nu okay: " + angleToTarget);
+
+                        if (angleToTarget > detectionAngle/2) // Adjust distance as needed
                         {
-                            Debug.Log("LOOK!!!");
+                            Debug.Log("LOOK!!!: " + DoNow.PlaceToBe);
                             Turn.PlaceToBe = DoNow.PlaceToBe;
                             NewDoIsNeeded(Turn);
 

@@ -10,8 +10,6 @@ public class Shredder : MonoBehaviour
 
     public bool YourTurn;
 
-    public GameObject Fire;
-
     private void Start()
     {
         paperShredSound = GetComponent<AudioSource>();
@@ -31,8 +29,6 @@ public class Shredder : MonoBehaviour
 
                 YourTurn = false;
             }
-
-            Fire.SetActive(true);
         }
     }
 }
