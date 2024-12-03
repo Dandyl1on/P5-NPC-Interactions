@@ -373,6 +373,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &2949235 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4090156311108845116, guid: 64b6e56013821d54d967fada50924731, type: 3}
+  m_PrefabInstance: {fileID: 2002956067}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &13808538
 GameObject:
   m_ObjectHideFlags: 0
@@ -2264,7 +2269,7 @@ PrefabInstance:
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 2002956068}
+      objectReference: {fileID: 2949235}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: target
       value: 
@@ -2298,6 +2303,10 @@ PrefabInstance:
       value: Focus
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: Throw.Name
+      value: Focus
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: AudioSource
       value: 
       objectReference: {fileID: 626265441}
@@ -2305,6 +2314,10 @@ PrefabInstance:
       propertyPath: Focus.Sound
       value: 
       objectReference: {fileID: 8300000, guid: 8487f150c4782e9458c58398d075d4e5, type: 3}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: Throw.Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: be1b2b14f35beab4abb55b769b56dd69, type: 3}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: pushDistance
       value: 100
@@ -2340,7 +2353,11 @@ PrefabInstance:
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: Focus.PlaceToBe
       value: 
-      objectReference: {fileID: 2002956068}
+      objectReference: {fileID: 2949235}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: Throw.PlaceToBe
+      value: 
+      objectReference: {fileID: 2949235}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: AdvarelseOne.Name
       value: Advarelse
@@ -2368,7 +2385,7 @@ PrefabInstance:
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: WalkBack.PlaceToBe
       value: 
-      objectReference: {fileID: 2002956068}
+      objectReference: {fileID: 2949235}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: AdvarelseThree.Name
       value: Advarelse
@@ -2376,7 +2393,7 @@ PrefabInstance:
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: CrossArms.PlaceToBe
       value: 
-      objectReference: {fileID: 2002956068}
+      objectReference: {fileID: 2949235}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: Focus.AnimationName
       value: Talk
@@ -2388,6 +2405,10 @@ PrefabInstance:
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: PushPlayerAway.Name
       value: Push
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: Throw.AnimationName
+      value: Talk
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: Turn.ExpressionToDo
@@ -2410,13 +2431,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: c31962e6543d8d34da86327713a7adfd, type: 3}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: Throw.ExpressionToDo
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: AdvarelseOne.PlaceToBe
       value: 
-      objectReference: {fileID: 2002956068}
+      objectReference: {fileID: 2949235}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: AdvarelseTwo.PlaceToBe
       value: 
-      objectReference: {fileID: 2002956068}
+      objectReference: {fileID: 2949235}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: CrossArms.AnimationName
       value: Cross Arms
@@ -2432,7 +2457,7 @@ PrefabInstance:
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: AdvarelseThree.PlaceToBe
       value: 
-      objectReference: {fileID: 2002956068}
+      objectReference: {fileID: 2949235}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: CrossArms.ExpressionToDo
       value: 4
@@ -2444,7 +2469,7 @@ PrefabInstance:
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: PushPlayerAway.PlaceToBe
       value: 
-      objectReference: {fileID: 2002956068}
+      objectReference: {fileID: 2949235}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: AdvarelseOne.AnimationName
       value: Cross Arms
@@ -2472,6 +2497,10 @@ PrefabInstance:
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: OLDNPCMenuScript.Array.size
       value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: Throw.AnimationOverBodyName
+      value: OverBody Talk
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: AdvarelseThree.AnimationName
@@ -2748,7 +2777,7 @@ PrefabInstance:
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[0].PlaceToBe
       value: 
-      objectReference: {fileID: 2002956068}
+      objectReference: {fileID: 2949235}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[10].Importen
       value: 1
@@ -2808,15 +2837,15 @@ PrefabInstance:
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[2].PlaceToBe
       value: 
-      objectReference: {fileID: 2002956068}
+      objectReference: {fileID: 2949235}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[3].PlaceToBe
       value: 
-      objectReference: {fileID: 2002956068}
+      objectReference: {fileID: 2949235}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[4].PlaceToBe
       value: 
-      objectReference: {fileID: 2002956068}
+      objectReference: {fileID: 2949235}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[5].PlaceToBe
       value: 
@@ -2824,7 +2853,7 @@ PrefabInstance:
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[6].PlaceToBe
       value: 
-      objectReference: {fileID: 2002956068}
+      objectReference: {fileID: 2949235}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[7].PlaceToBe
       value: 
@@ -2940,11 +2969,11 @@ PrefabInstance:
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[13].PlaceToBe
       value: 
-      objectReference: {fileID: 2002956068}
+      objectReference: {fileID: 2949235}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[14].PlaceToBe
       value: 
-      objectReference: {fileID: 2002956068}
+      objectReference: {fileID: 2949235}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[15].PlaceToBe
       value: 
@@ -2952,23 +2981,23 @@ PrefabInstance:
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[16].PlaceToBe
       value: 
-      objectReference: {fileID: 2002956068}
+      objectReference: {fileID: 2949235}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[17].PlaceToBe
       value: 
-      objectReference: {fileID: 2002956068}
+      objectReference: {fileID: 2949235}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[18].PlaceToBe
       value: 
-      objectReference: {fileID: 2002956068}
+      objectReference: {fileID: 2949235}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[19].PlaceToBe
       value: 
-      objectReference: {fileID: 2002956068}
+      objectReference: {fileID: 2949235}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[20].PlaceToBe
       value: 
-      objectReference: {fileID: 2002956068}
+      objectReference: {fileID: 2949235}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: NPCDoingList.Array.data[21].PlaceToBe
       value: 
@@ -4127,7 +4156,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -4141,7 +4170,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_Constraints: 0
   m_CollisionDetection: 1
 --- !u!65 &423344573
