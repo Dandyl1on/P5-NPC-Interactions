@@ -328,6 +328,7 @@ public class NPC_DoDoer : MonoBehaviour
                 float normalizedAngleDifference = angleDifference / 180f;
                 Debug.Log("NormalizedAngleDifference: " + normalizedAngleDifference);
 
+
                 Ani.SetFloat("Turn Degress", normalizedAngleDifference);
 
 
@@ -336,7 +337,6 @@ public class NPC_DoDoer : MonoBehaviour
                 float smallestAngle = .1f; // Minimum angle to avoid division by zero or overly high speeds
                 float adjustedAngle = Mathf.Max(Mathf.Abs(angleDifference), smallestAngle); // Ensure a minimum angle threshold
                 float speedFactor = Mathf.Clamp(180f / adjustedAngle, minSpeed, maxSpeed); // Speed is inversely proportional to angle
-
 
                 Ani.SetFloat("Turn Speed", speedFactor);
 
@@ -347,6 +347,8 @@ public class NPC_DoDoer : MonoBehaviour
 
             if (Ani.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && Ani.GetCurrentAnimatorStateInfo(0).IsName("Turn"))
             {
+                Debug.Log("Din mor");
+
                 GetNextDo();
                 SatTurnDegress = false;
             }
@@ -615,6 +617,8 @@ public class NPC_DoDoer : MonoBehaviour
 
     public void SetAnimation(string animationName)
     {
+        Debug.Log("og far: " + animationName);
+
         if (animationName != "")
         {
             Ani.SetBool("Walk", false);
@@ -689,8 +693,6 @@ public class NPC_DoDoer : MonoBehaviour
             // Check if the object is looking at the target
             Vector3 directionToTarget = (this.transform.position - Player.transform.position).normalized;
             float dotProduct = Vector3.Dot(Player.transform.forward, directionToTarget);
-
-            Debug.Log(dotProduct);
 
             if (dotProduct > lookThreshold)
             {

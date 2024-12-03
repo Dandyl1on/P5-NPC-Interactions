@@ -2282,6 +2282,10 @@ PrefabInstance:
       value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: HasTurned
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: Idle.Name
       value: Cross Arms
       objectReference: {fileID: 0}
@@ -2312,6 +2316,10 @@ PrefabInstance:
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: PersonalSpace
       value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: SmartNPCBrain
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: lookThreshold
@@ -2380,6 +2388,10 @@ PrefabInstance:
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: PushPlayerAway.Name
       value: Push
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: Turn.ExpressionToDo
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4902954762301073287, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: skinnedMeshRenderer
@@ -3905,6 +3917,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5925864781151661338, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 79679914c17cb8c44904f8dd4b86528b, type: 2}
     - target: {fileID: 5925864781151661338, guid: efc5947a30e790c4d853273fe0bed900, type: 3}
       propertyPath: m_UpdateMode
       value: 0
