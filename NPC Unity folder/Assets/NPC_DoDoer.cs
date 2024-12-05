@@ -84,6 +84,8 @@ public class NPC_DoDoer : MonoBehaviour
     public bool SmoothOverbodyTransition;
     public float SmoothOverbodyTransitionDuration;
 
+    public GameObject Fire;
+
     [Header("Detection")]
     public NPCDo Turn;
 
@@ -158,11 +160,11 @@ public class NPC_DoDoer : MonoBehaviour
         }
 
 
-        if (Temperment < 100)
+        if (Temperment < 60)
         {
-            if (Temperment < 80)
+            if (Temperment < 40)
             {
-                if (Temperment > 40)
+                if (Temperment > 20)
                 {
                     if (AdvarelseCounter <= 0)
                     {
@@ -248,7 +250,10 @@ public class NPC_DoDoer : MonoBehaviour
             {
                 Vector3 location = new Vector3(DoNow.PlaceToBe.transform.position.x, 0, DoNow.PlaceToBe.transform.position.z);
 
-                if (Vector3.Distance(transform.position, Player.transform.position) > PersonalSpace + .5f)
+                Vector3 Playervec = new Vector3(Player.transform.position.x, 0, Player.transform.position.z);
+                Vector3 thisvec = new Vector3(transform.position.x, 0, transform.position.z);
+
+                if (Vector3.Distance(thisvec, Playervec) > PersonalSpace + .5f)
                 {
                     if (SmartNPCBrain == true)
                     {
@@ -282,7 +287,10 @@ public class NPC_DoDoer : MonoBehaviour
         {
             if (BackedUp == true)
             {
-                if (Vector3.Distance(transform.position, Player.transform.position) > PersonalSpace + .5f)
+                Vector3 Playervec = new Vector3(Player.transform.position.x, 0, Player.transform.position.z);
+                Vector3 thisvec = new Vector3(transform.position.x, 0, transform.position.z);
+
+                if (Vector3.Distance(thisvec, Playervec) > PersonalSpace + .5f)
                 {
                     if (AudioSource.isPlaying == false)
                     {
@@ -290,15 +298,6 @@ public class NPC_DoDoer : MonoBehaviour
 
                         SmoothOverbodyTransition = false;
                         GetNextDo();
-                    }
-                }
-                else
-                {
-                    Debug.Log("Set Push");
-
-                    if (SmartNPCBrain == true)
-                    {
-                        NewDoIsNeeded(PushPlayerAway);
                     }
                 }
             }
@@ -319,7 +318,10 @@ public class NPC_DoDoer : MonoBehaviour
             if (SatTurnDegress == false)
             {
                 // Calculate direction from the object to the target
-                Vector3 directionToTarget = (DoNow.PlaceToBe.transform.position - transform.position).normalized;
+                Vector3 targetvec = new Vector3(DoNow.PlaceToBe.transform.position.x, 0, DoNow.PlaceToBe.transform.position.z);
+                Vector3 thisvec = new Vector3(transform.position.x, 0, transform.position.z);
+
+                Vector3 directionToTarget = (targetvec - thisvec).normalized;
 
                 // Calculate the angle between the object's forward direction and the target direction
                 float angleDifference = Vector3.SignedAngle(transform.forward, directionToTarget, Vector3.up);
@@ -357,35 +359,28 @@ public class NPC_DoDoer : MonoBehaviour
 
         if (DoNow.Name != "Press Buttons" && DoNow.Name != "Push")
         {
-            if (BackedUp == false)
+            Vector3 Playervec = new Vector3(Player.transform.position.x, 0, Player.transform.position.z);
+            Vector3 thisvec = new Vector3(transform.position.x, 0, transform.position.z);
+
+            if (Vector3.Distance(thisvec, Playervec) < PersonalSpace)
             {
-                if (Vector3.Distance(transform.position, Player.transform.position) < PersonalSpace)
-                {
-                    if (DoNow.Name != "Walk Back")
-                    {
-                        if (SmartNPCBrain == true)
-                        {
-                            NewDoIsNeeded(WalkBack);
-                        }
-                    }
-                }
-            }
-            else
-            {
-                if (Vector3.Distance(transform.position, Player.transform.position) < PersonalSpace)
+                if (DoNow.Name != "Walk Back")
                 {
                     if (SmartNPCBrain == true)
                     {
-                        Debug.Log("Cross Arms 1: " + DoNow.Name);
-                        NewDoIsNeeded(PushPlayerAway);
+                        NewDoIsNeeded(WalkBack);
                     }
                 }
             }
         }
 
+        /*
         if (DoNow.Name == "Push")
         {
-            if (Vector3.Distance(transform.position, Player.transform.position) > PersonalSpace)
+            Vector3 Playervec = new Vector3(Player.transform.position.x, 0, Player.transform.position.z);
+            Vector3 thisvec = new Vector3(transform.position.x, 0, transform.position.z);
+
+            if (Vector3.Distance(thisvec, Playervec) > PersonalSpace)
             {
                 if (AudioSource.isPlaying == false)
                 {
@@ -415,6 +410,7 @@ public class NPC_DoDoer : MonoBehaviour
                 }
             }
         }
+        */
 
         if (DoNow.Name == "Explain")
         {
@@ -487,17 +483,48 @@ public class NPC_DoDoer : MonoBehaviour
 
         if (DoNow.Name == "Press Buttons Long")
         {
-            if (DeadTimer > 90 || MoveOn == true)
+            if (DeadTimer > 60 || MoveOn == true)
             {
                 MoveOn = false;
 
                 SetOverBodyAnimation("null");
 
                 GetNextDo();
+
+                DeadTimer = 0;
             }
             else
             {
                 DeadTimer += Time.deltaTime;
+            }
+        }
+
+        if (DoNow.Name == "Fire Wait")
+        {
+            if (SmartNPCBrain == true)
+            {
+                if (DeadTimer > 10 || MoveOn == true)
+                {
+                    MoveOn = false;
+
+                    SetOverBodyAnimation("null");
+
+                    GetNextDo();
+
+                    DeadTimer = 0;
+                }
+                else
+                {
+                    DeadTimer += Time.deltaTime;
+                }
+            }
+        }
+
+        if (DoNow.Name == "Fire Press")
+        {
+            if (Ani.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && Ani.GetCurrentAnimatorStateInfo(0).IsName("Point"))
+            {
+                Time.timeScale = 0;
             }
         }
 
@@ -579,7 +606,10 @@ public class NPC_DoDoer : MonoBehaviour
             if (TargetGM == DoNow.PlaceToBe)
             {
                 // Get direction to the target
-                Vector3 directionToTarget = (TargetGM.transform.position - transform.position).normalized;
+                Vector3 targetvec = new Vector3(TargetGM.transform.position.x, 0, TargetGM.transform.position.z);
+                Vector3 thisvec = new Vector3(transform.position.x, 0, transform.position.z);
+
+                Vector3 directionToTarget = (targetvec - thisvec).normalized;
 
                 // Check if the target is within the cone angle and outside a certain range
                 float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
@@ -622,7 +652,10 @@ public class NPC_DoDoer : MonoBehaviour
             if (TargetGM == DoNow.PlaceToBe)
             {
                 // Get direction to the target
-                Vector3 directionToTarget = (TargetGM.transform.position - transform.position).normalized;
+                Vector3 targetvec = new Vector3(TargetGM.transform.position.x, 0, TargetGM.transform.position.z);
+                Vector3 thisvec = new Vector3(transform.position.x, 0, transform.position.z);
+
+                Vector3 directionToTarget = (targetvec - thisvec).normalized;
 
                 // Check if the target is within the cone angle and outside a certain range
                 float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
@@ -730,7 +763,10 @@ public class NPC_DoDoer : MonoBehaviour
         if (SmartNPCBrain == true)
         {
             // Check if the object is looking at the target
-            Vector3 directionToTarget = (this.transform.position - Player.transform.position).normalized;
+            Vector3 targetvec = new Vector3(Player.transform.position.x, 0, Player.transform.position.z);
+            Vector3 thisvec = new Vector3(transform.position.x, 0, transform.position.z);
+
+            Vector3 directionToTarget = (thisvec - targetvec).normalized;
             float dotProduct = Vector3.Dot(Player.transform.forward, directionToTarget);
 
             if (dotProduct > lookThreshold)
@@ -743,7 +779,7 @@ public class NPC_DoDoer : MonoBehaviour
                 // Object is not looking at the target
                 timeNotLooking += Time.deltaTime;
 
-                if (timeNotLooking >= 15)
+                if (timeNotLooking >= 15 && Fire.active == false)
                 {
                     Temperment += 5;
 
@@ -790,9 +826,10 @@ public class NPC_DoDoer : MonoBehaviour
                     if (TargetGM == DoNow.PlaceToBe)
                     {
                         // Get direction to the target
-                        Vector3 vec = new Vector3(TargetGM.transform.position.x, 0, TargetGM.transform.position.z);
+                        Vector3 targetvec = new Vector3(TargetGM.transform.position.x, 0, TargetGM.transform.position.z);
+                        Vector3 thisvec = new Vector3(transform.position.x, 0, transform.position.z);
 
-                        Vector3 directionToTarget = (vec - transform.position).normalized;
+                        Vector3 directionToTarget = (targetvec - thisvec).normalized;
 
                         
 
@@ -883,11 +920,11 @@ public class NPC_DoDoer : MonoBehaviour
     //Face
     public void SetFaceToDefault()
     {
-        if (Temperment < 100)
+        if (Temperment < 60)
         {
-            if (Temperment < 80)
+            if (Temperment < 40)
             {
-                if (Temperment < 40)
+                if (Temperment < 20)
                 {
                     TheBlendShaper.currentExpression = Expression.Neutral;
                 }

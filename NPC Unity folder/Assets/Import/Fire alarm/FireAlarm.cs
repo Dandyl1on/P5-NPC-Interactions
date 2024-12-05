@@ -9,6 +9,7 @@ public class FireAlarm : MonoBehaviour
     AudioSource sprinkler1Sound, sprinkler2Sound;
     public bool fireOn;
     bool alarmIsPlaying;
+
     public GameObject Fire;
 
     void Start()
@@ -26,7 +27,6 @@ public class FireAlarm : MonoBehaviour
         {
             sprinklerParticles1.SetActive(true);
             sprinklerParticles2.SetActive(true);
-            Fire.SetActive(true);
 
             if (alarmIsPlaying == false)
             {
@@ -40,7 +40,6 @@ public class FireAlarm : MonoBehaviour
         {
             sprinklerParticles1.SetActive(false);
             sprinklerParticles2.SetActive(false);
-            Fire.SetActive(false);
         }
     }
 

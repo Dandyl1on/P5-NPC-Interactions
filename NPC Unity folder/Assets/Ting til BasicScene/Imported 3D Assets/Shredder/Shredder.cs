@@ -10,6 +10,9 @@ public class Shredder : MonoBehaviour
 
     public bool YourTurn;
 
+
+    public GameObject Fire;
+
     private void Start()
     {
         paperShredSound = GetComponent<AudioSource>();
@@ -25,10 +28,18 @@ public class Shredder : MonoBehaviour
 
             if (YourTurn == true)
             {
-                FindObjectOfType<NPC_DoDoer>().MoveOn = true;
-
                 YourTurn = false;
+
+                StartCoroutine(delay());
             }
         }
+    }
+
+    IEnumerator delay()
+    {
+        yield return new WaitForSeconds(2);
+        Fire.SetActive(true);
+        yield return new WaitForSeconds(1);
+        FindObjectOfType<NPC_DoDoer>().MoveOn = true;
     }
 }
