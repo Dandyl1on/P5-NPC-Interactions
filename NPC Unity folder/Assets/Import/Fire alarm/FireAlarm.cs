@@ -49,7 +49,7 @@ public class FireAlarm : MonoBehaviour
         {
             if (Fire.active == false)
             {
-                FindObjectOfType<NPC_DoDoer>().Temperment += 100;
+                FindObjectOfType<NPCBrain>().Temperment += 100;
             }
             fireOn = true;
         }    

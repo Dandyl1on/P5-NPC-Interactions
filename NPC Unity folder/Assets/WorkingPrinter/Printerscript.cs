@@ -60,7 +60,7 @@ public class Printerscript : MonoBehaviour
 
                 if (YourTurn == true)
                 {
-                    FindObjectOfType<NPC_DoDoer>().MoveOn = true;
+                    FindObjectOfType<NPCBrain>().MoveOn = true;
 
                     YourTurn = false;
                 }

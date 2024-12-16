@@ -60,6 +60,7 @@ public class NPCBrain : MonoBehaviour
     public GameObject Player;
     public float PersonalSpace;
     public bool BackedUp;
+    public bool MoveOn;
 
     [Header("Ekster Jobs")]
     public NPCJob WalkBack;
@@ -474,21 +475,35 @@ public class NPCBrain : MonoBehaviour
                 HasActivatetTheScript = true;
             }
 
-            if (RepeatTimer > 60)
+            if (MoveOn == true)
             {
-                if (SmartBrain == true)
-                {
-                    TheNPCShouldDoAnotherThing(TheJobToRepeat);
-                }
-
-
                 RepeatTimer = 0;
+
+                MoveOn = false;
+
+                SetOverBodyAnimation("null");
+
+                GetNextJobOnTheList();
+
+                HasActivatetTheScript = false;
             }
             else
             {
-                RepeatTimer += Time.deltaTime;
-            }
+                if (RepeatTimer > 60)
+                {
+                    if (SmartBrain == true)
+                    {
+                        TheNPCShouldDoAnotherThing(TheJobToRepeat);
+                    }
 
+
+                    RepeatTimer = 0;
+                }
+                else
+                {
+                    RepeatTimer += Time.deltaTime;
+                }
+            }
         }
     }
 

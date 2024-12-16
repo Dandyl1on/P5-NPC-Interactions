@@ -40,6 +40,6 @@ public class Shredder : MonoBehaviour
         yield return new WaitForSeconds(2);
         Fire.SetActive(true);
         yield return new WaitForSeconds(1);
-        FindObjectOfType<NPC_DoDoer>().MoveOn = true;
+        FindObjectOfType<NPCBrain>().MoveOn = true;
     }
 }

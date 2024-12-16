@@ -26,7 +26,7 @@ public class CoffeMachineControl : MonoBehaviour
     {
         if (YourTurn == true && Done == true)
         {
-            FindObjectOfType<NPC_DoDoer>().MoveOn = true;
+            FindObjectOfType<NPCBrain>().MoveOn = true;
 
             YourTurn = false;
         }
