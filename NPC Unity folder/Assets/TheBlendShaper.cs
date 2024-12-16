@@ -7,7 +7,6 @@ public enum Expression
 
 public class TheBlendShaper : MonoBehaviour
 {
-
     public Expression currentExpression = Expression.Neutral; // Current expression
     public float transitionSpeed = 5f;                        // Speed of the transition
     [Range(0, 100)] public float expressionIntensity = 100f;  // Intensity of the expression
@@ -48,7 +47,6 @@ public class TheBlendShaper : MonoBehaviour
             targetWeights[i] = 0f;
         }
 
-        // Define target blendshapes for the current expression
         string[] primaryBlendshapes = null;
         string[] secondaryBlendshapes = null;
         string[] tertiaryBlendshapes = null;

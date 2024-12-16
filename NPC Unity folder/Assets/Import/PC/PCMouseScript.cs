@@ -39,12 +39,19 @@ public class PCMouseScript : MonoBehaviour
     {
         triggerValue = handAnimator.GetFloat("Trigger");
 
-        Vector3 followPosition = new Vector3(mouseObject.transform.localPosition.x * sensitivity, mouseObject.transform.localPosition.z * sensitivity, transform.localPosition.z);
+        Vector3 followPosition = new Vector3(mouseObject.transform.localPosition.x * sensitivity,
+            mouseObject.transform.localPosition.z * sensitivity, transform.localPosition.z);
 
-        followPosition.x = Mathf.Clamp(transform.localPosition.x, transform.localPosition.x - maxX, transform.localPosition.x + maxX);
-        followPosition.y = Mathf.Clamp(transform.localPosition.y, transform.localPosition.y - maxY, transform.localPosition.y + maxY);
 
-        transform.localPosition = new Vector3(mouseObject.transform.localPosition.x * sensitivity, mouseObject.transform.localPosition.z * sensitivity, transform.localPosition.z);
+        followPosition.x = Mathf.Clamp(transform.localPosition.x, transform.localPosition.x - maxX, 
+            transform.localPosition.x + maxX);
+
+        followPosition.y = Mathf.Clamp(transform.localPosition.y, transform.localPosition.y - maxY, 
+            transform.localPosition.y + maxY);
+
+
+        transform.localPosition = new Vector3(mouseObject.transform.localPosition.x * sensitivity,
+            mouseObject.transform.localPosition.z * sensitivity, transform.localPosition.z);
 
         if(yoinkScript2.mouseHeld == true && triggerValue > 0.2f && mouseClicked == false)
         {
@@ -55,8 +62,6 @@ public class PCMouseScript : MonoBehaviour
         {
             mouseClicked = false;
         }
-
-        //Debug.Log(yoinkScript.triggerYoinkValue);
     }
 
     private void OnTriggerStay(Collider other)

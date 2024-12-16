@@ -67,18 +67,10 @@ public class Printerscript : MonoBehaviour
             }
         }
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("hand") && !isMoving)
-        {
-            Paperlocation();   
-        }
-    }
-
     private void Paperlocation()
     {
         int randomLocation = Random.Range(0, 3);
+
         if (randomLocation == 0)
         {
             Printersound = GetComponent<AudioSource>();
@@ -110,6 +102,15 @@ public class Printerscript : MonoBehaviour
             Endpos = Endpos3;
             isMoving = true;
             moveProgress = 0.0f;
+        }
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("hand") && !isMoving)
+        {
+            Paperlocation();
         }
     }
 }

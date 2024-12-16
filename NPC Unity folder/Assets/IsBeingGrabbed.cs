@@ -7,30 +7,28 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class IsBeingGrabbed : MonoBehaviour
 {
-    public NPCDo NPCDoGrabReation;
+    public NPCJob NPCDoGrabReation;
 
     Rigidbody rb;
     public bool hasAlerted;
     public float throwThreshold;
 
     XRGrabInteractable interactable;
-    public NPC_DoDoer nPC_DoDoer;
+    public NPCBrain NPCBrain;
     public bool Once;
 
-    // Start is called before the first frame update
     void Start()
     {
         interactable = GetComponent<XRGrabInteractable>();
-        nPC_DoDoer = FindObjectOfType<NPC_DoDoer>();
+        NPCBrain = FindObjectOfType<NPCBrain>();
 
         rb = GetComponent<Rigidbody>();
         throwThreshold = 7.5f;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (nPC_DoDoer.SmartNPCBrain == true)
+        if (NPCBrain.SmartBrain == true)
         {
             if (Once == false)
             {
@@ -38,7 +36,7 @@ public class IsBeingGrabbed : MonoBehaviour
                 {
                     if (NPCDoGrabReation.Name != "")
                     {
-                        nPC_DoDoer.NewDoIsNeeded(NPCDoGrabReation);
+                        NPCBrain.TheNPCShouldDoAnotherThing(NPCDoGrabReation);
 
                         Once = true;
                     }
@@ -47,20 +45,13 @@ public class IsBeingGrabbed : MonoBehaviour
 
             if (interactable.Dropped == true)
             {
-                //Debug.Log(rb.angularVelocity.magnitude);
-                //Physic Jakob her
                 if (rb.angularVelocity.magnitude > throwThreshold && hasAlerted == false)
                 {
-                    Debug.Log("You trhwoed an item to hard");
-
-                    nPC_DoDoer.NewDoIsNeeded(nPC_DoDoer.Throw);
+                    NPCBrain.TheNPCShouldDoAnotherThing(NPCBrain.Throw);
                     StartCoroutine(AlertCoolDown());
 
-                    nPC_DoDoer.Temperment += 10;
+                    NPCBrain.Temperment += 10;
                 }
-
-
-
             }
         }
     }
